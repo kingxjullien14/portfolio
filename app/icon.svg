@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#7a5cff" />
+      <stop offset="0.55" stop-color="#b45bcf" />
+      <stop offset="1" stop-color="#f06ab6" />
+    </linearGradient>
+  </defs>
+  <rect width="64" height="64" rx="16" fill="#08040e" />
+  <rect x="4" y="4" width="56" height="56" rx="13" fill="url(#g)" />
+  <text x="32" y="44" font-family="Segoe UI, Arial, sans-serif" font-size="30" font-weight="700" fill="#ffffff" text-anchor="middle">JN</text>
+</svg>
