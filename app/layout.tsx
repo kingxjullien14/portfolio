@@ -26,7 +26,8 @@ const jetbrains = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jullien-nazreen.vercel.app"),
+  metadataBase: new URL("https://www.jullienazreen.com"),
+  alternates: { canonical: "/" },
   title: {
     default: `${profile.name} — ${profile.role}`,
     template: `%s · ${profile.name}`,
@@ -49,6 +50,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: `${profile.name} — ${profile.role}`,
     description: profile.heroSub,
+    url: "https://www.jullienazreen.com",
     type: "website",
     locale: "en_US",
     siteName: profile.name,
