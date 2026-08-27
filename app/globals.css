@@ -1,50 +1,48 @@
 @import "tailwindcss";
 
 /* ============================================================
-   Design tokens  —  "Aurora"  ·  Jullien Nazreen
+   Design tokens  —  "Feedstock"  ·  Jullien Nazreen
    ============================================================ */
 @theme {
-  /* palette */
-  --color-void: #08040e;
-  --color-void-2: #0d0718;
-  --color-surface: #140c22;
-  --color-ink: #ece6f6;
-  --color-ink-dim: #a99fbc;
-  --color-ink-faint: #6d6382;
+  /* palette — deeper void, glowing purple core */
+  --color-void: #050208;
+  --color-void-2: #0b0514;
+  --color-surface: #150c26;
+  --color-ink: #f2ecfb;
+  --color-ink-dim: #aaa0c2;
+  --color-ink-faint: #6b6180;
   --color-accent: #b45bcf;
-  --color-accent-bright: #c978e8;
-  --color-accent-deep: #8a3fa8;
-  --color-aurora-1: #b45bcf;
-  --color-aurora-2: #7a5cff;
-  --color-aurora-3: #f06ab6;
+  --color-accent-bright: #d98cf0;
+  --color-accent-deep: #7d2f9e;
+  --color-aurora-1: #b45bcf; /* violet core */
+  --color-aurora-2: #7c4dff; /* electric indigo */
+  --color-aurora-3: #ff5ec4; /* hot magenta */
 
   /* fonts — variables injected by next/font in layout.tsx */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
   --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
   --font-mono: var(--font-jetbrains), ui-monospace, monospace;
 
-  /* radius */
   --radius-2xl: 1.25rem;
   --radius-3xl: 1.75rem;
 }
 
-/* extra runtime vars (not utilities) */
 :root {
   --aurora-1: #b45bcf;
-  --aurora-2: #7a5cff;
-  --aurora-3: #f06ab6;
+  --aurora-2: #7c4dff;
+  --aurora-3: #ff5ec4;
   --glass: rgba(255, 255, 255, 0.035);
   --glass-strong: rgba(255, 255, 255, 0.06);
-  --glass-border: rgba(184, 128, 224, 0.14);
-  --glass-border-strong: rgba(184, 128, 224, 0.3);
-  --max: 76rem;
+  --glass-border: rgba(190, 130, 235, 0.16);
+  --glass-border-strong: rgba(190, 130, 235, 0.34);
+  --max: 82rem;
 }
 
 /* ============================================================
    Base
    ============================================================ */
 html {
-  scroll-behavior: auto; /* Lenis owns smooth scroll */
+  scroll-behavior: auto;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -63,13 +61,13 @@ h2,
 h3,
 h4 {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1;
 }
 
 ::selection {
-  background: rgba(180, 91, 207, 0.35);
+  background: rgba(180, 91, 207, 0.4);
   color: #fff;
 }
 
@@ -92,7 +90,6 @@ h4 {
   border: 2px solid var(--color-void);
 }
 
-/* custom cursor takes over on fine-pointer devices */
 @media (pointer: fine) {
   .custom-cursor-active,
   .custom-cursor-active * {
@@ -101,7 +98,7 @@ h4 {
 }
 
 /* ============================================================
-   Utilities / components
+   Utilities
    ============================================================ */
 .container-x {
   width: 100%;
@@ -113,7 +110,7 @@ h4 {
 .eyebrow {
   font-family: var(--font-mono);
   font-size: 0.72rem;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--color-accent);
 }
@@ -121,8 +118,8 @@ h4 {
 .glass {
   background: var(--glass);
   border: 1px solid var(--glass-border);
-  backdrop-filter: blur(14px) saturate(140%);
-  -webkit-backdrop-filter: blur(14px) saturate(140%);
+  backdrop-filter: blur(14px) saturate(150%);
+  -webkit-backdrop-filter: blur(14px) saturate(150%);
 }
 
 .glass-card {
@@ -135,21 +132,20 @@ h4 {
   );
   border: 1px solid var(--glass-border);
   border-radius: var(--radius-3xl);
-  backdrop-filter: blur(16px) saturate(140%);
-  -webkit-backdrop-filter: blur(16px) saturate(140%);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
   transition:
     border-color 0.4s ease,
     transform 0.4s ease,
     box-shadow 0.4s ease;
 }
-/* subtle top sheen border */
 .glass-card::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(140deg, rgba(255, 255, 255, 0.28), transparent 42%);
+  background: linear-gradient(140deg, rgba(255, 255, 255, 0.3), transparent 42%);
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -166,8 +162,8 @@ h4 {
   background: linear-gradient(
     110deg,
     #ffffff 0%,
-    var(--aurora-1) 42%,
-    var(--aurora-3) 68%,
+    var(--aurora-1) 38%,
+    var(--aurora-3) 64%,
     var(--aurora-2) 100%
   );
   background-size: 200% auto;
@@ -176,8 +172,22 @@ h4 {
   color: transparent;
 }
 
+/* outlined display text (transparent fill, glowing stroke) */
+.text-stroke {
+  color: transparent;
+  -webkit-text-stroke: 1.4px var(--color-accent);
+}
+@supports not (-webkit-text-stroke: 1px #000) {
+  .text-stroke {
+    color: var(--color-accent);
+  }
+}
+
 .text-glow {
-  filter: drop-shadow(0 0 42px rgba(180, 91, 207, 0.4));
+  filter: drop-shadow(0 0 42px rgba(180, 91, 207, 0.45));
+}
+.glow-strong {
+  filter: drop-shadow(0 0 60px rgba(180, 91, 207, 0.55));
 }
 
 .hairline {
@@ -190,17 +200,15 @@ h4 {
   );
 }
 
-/* fixed atmosphere overlays */
 .grain-overlay {
   position: fixed;
   inset: 0;
   z-index: 45;
   pointer-events: none;
-  opacity: 0.045;
+  opacity: 0.05;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-/* aurora blobs (AuroraBackground) */
 .aurora-blob {
   position: absolute;
   border-radius: 50%;

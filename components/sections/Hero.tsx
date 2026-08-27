@@ -1,54 +1,87 @@
 "use client";
 
-import { motion, type Variants } from "framer-motion";
+import { useRef } from "react";
+import {
+  motion,
+  useScroll,
+  useTransform,
+  useReducedMotion,
+  type Variants,
+} from "framer-motion";
 import { profile, socials } from "@/lib/data";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ArrowDown, DownloadIcon, socialIcons } from "@/components/icons";
 import { EASE } from "@/lib/motion";
 import { SplitText } from "@/components/text/SplitText";
+import { AuroraShader } from "@/components/AuroraShader";
 
 const container: Variants = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12, delayChildren: 0.15 } },
+  show: { transition: { staggerChildren: 0.12, delayChildren: 0.2 } },
 };
 const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
+  hidden: { opacity: 0, y: 26 },
   show: { opacity: 1, y: 0, transition: { duration: 0.8, ease: EASE } },
 };
 const nameLine: Variants = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.9, ease: EASE } },
+  hidden: { opacity: 0, y: 60 },
+  show: { opacity: 1, y: 0, transition: { duration: 1, ease: EASE } },
 };
 
 export function Hero() {
+  const reduce = useReducedMotion();
+  const ref = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+  const y = useTransform(scrollYProgress, [0, 1], [0, -70]);
+  const opacity = useTransform(scrollYProgress, [0, 0.65], [1, 0]);
+
   return (
     <section
+      ref={ref}
       id="hero"
-      className="relative flex min-h-screen items-center pb-24 pt-28"
+      className="relative flex min-h-screen items-center overflow-hidden pb-24 pt-28"
     >
-      <div className="container-x">
+      {/* live energy field */}
+      <AuroraShader className="pointer-events-none absolute inset-0 h-full w-full mix-blend-screen opacity-80" />
+      {/* legibility wash */}
+      <div
+        aria-hidden
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, var(--color-void) 0%, rgba(5,2,8,0.4) 40%, transparent 75%), linear-gradient(0deg, var(--color-void), transparent 55%)",
+        }}
+      />
+
+      <motion.div
+        style={reduce ? undefined : { y, opacity }}
+        className="container-x relative z-10"
+      >
         <motion.div
           variants={container}
           initial="hidden"
           animate="show"
-          className="max-w-4xl"
+          className="max-w-5xl"
         >
           <motion.div
             variants={item}
-            className="glass inline-flex items-center gap-2 rounded-full px-3.5 py-1.5 text-xs text-ink-dim"
+            className="glass inline-flex items-center gap-2.5 rounded-full px-4 py-2 text-xs text-ink-dim"
           >
             <span className="relative flex h-2 w-2">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400/70" />
-              <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-400" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent/70" />
+              <span className="relative inline-flex h-2 w-2 rounded-full bg-accent" />
             </span>
-            {profile.availability}
+            {profile.status}
           </motion.div>
 
           <motion.p variants={item} className="eyebrow mt-6">
             {profile.role} · {profile.location}
           </motion.p>
 
-          <h1 className="text-glow mt-4 text-[clamp(3rem,11vw,8.5rem)] font-semibold leading-[0.95] tracking-tight">
+          <h1 className="text-glow mt-4 text-[clamp(3.25rem,13vw,11rem)] font-bold leading-[0.9] tracking-[-0.04em]">
             <motion.span variants={nameLine} className="aurora-text shimmer block">
               {profile.firstName}
             </motion.span>
@@ -63,21 +96,15 @@ export function Hero() {
             by="word"
             blur={6}
             trigger="load"
-            delay={0.7}
+            delay={0.8}
             duration={0.9}
             stagger={0.03}
             className="mt-8 max-w-2xl text-xl font-medium leading-snug text-ink sm:text-2xl"
           />
-          <motion.p
-            variants={item}
-            className="mt-4 max-w-xl text-base leading-relaxed text-ink-dim"
-          >
-            {profile.heroSub}
-          </motion.p>
 
           <motion.div
             variants={item}
-            className="mt-9 flex flex-wrap items-center gap-3"
+            className="mt-10 flex flex-wrap items-center gap-3"
           >
             <MagneticButton href="#work" variant="primary">
               View my work <ArrowDown className="h-4 w-4" />
@@ -106,14 +133,13 @@ export function Hero() {
             })}
           </motion.div>
         </motion.div>
-      </div>
+      </motion.div>
 
-      {/* scroll cue */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.5, duration: 1 }}
-        className="pointer-events-none absolute inset-x-0 bottom-8 flex justify-center"
+        transition={{ delay: 1.6, duration: 1 }}
+        className="pointer-events-none absolute inset-x-0 bottom-8 z-10 flex justify-center"
       >
         <a
           href="#about"

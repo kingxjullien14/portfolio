@@ -18,7 +18,9 @@ export const profile = {
     "I engineer web & mobile platforms that turn used cooking oil into clean-energy feedstock",
   heroSub:
     "Full-stack developer at FatHopes Energy — building the systems behind Southeast Asia's UCO collection and energy-feedstock trading, end-to-end from database schema to the interfaces vendors use every day.",
-  availability: "Open to work in clean energy, logistics & fintech",
+  status: "Building the future of energy @ FatHopes Energy",
+  contactNote:
+    "Not job-hunting — just always up for a good conversation about clean energy, logistics & fintech.",
 } as const;
 
 export const socials = [

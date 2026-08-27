@@ -25,7 +25,7 @@ export function SectionHeading({
           <span className="eyebrow">{eyebrow}</span>
         </div>
       </Reveal>
-      <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">
+      <h2 className="mt-4 text-5xl font-bold text-ink sm:text-6xl">
         <SplitText text={title} by="word" />
         {accent ? (
           <>

@@ -5,6 +5,7 @@ import { AuroraBackground } from "@/components/AuroraBackground";
 import { Cursor } from "@/components/Cursor";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import { MotionProvider } from "@/components/MotionProvider";
+import { Preloader } from "@/components/Preloader";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
 import { profile } from "@/lib/data";
@@ -75,6 +76,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       suppressHydrationWarning
     >
       <body className="antialiased">
+        <Preloader />
         <AuroraBackground />
         <div className="grain-overlay" aria-hidden />
         <MotionProvider>

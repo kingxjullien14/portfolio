@@ -29,8 +29,7 @@ export function Contact() {
               />
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-ink-dim">
-              {profile.availability}. Whether it&apos;s an idea, a role, or a
-              collaboration — my inbox is open.
+              {profile.contactNote}
             </p>
 
             <div className="mt-9 flex flex-wrap items-center justify-center gap-3">

@@ -13,7 +13,7 @@ export function Stats() {
                 key={i}
                 className="bg-white/[0.012] px-6 py-9 text-center sm:py-10"
               >
-                <div className="font-display text-4xl font-semibold sm:text-5xl">
+                <div className="font-display text-5xl font-bold sm:text-6xl">
                   <span className="aurora-text">
                     <Counter value={s.value} suffix={s.suffix} />
                   </span>
