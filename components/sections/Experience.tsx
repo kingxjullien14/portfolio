@@ -6,14 +6,7 @@ export function Experience() {
   return (
     <section id="experience" className="relative py-24 sm:py-32">
       <div className="container-x">
-        <SectionHeading
-          eyebrow="Journey"
-          title={
-            <>
-              Where I&apos;ve <span className="aurora-text">worked</span>
-            </>
-          }
-        />
+        <SectionHeading eyebrow="Journey" title="Where I've" accent="worked" />
 
         <div className="relative mt-14">
           <div

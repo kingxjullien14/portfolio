@@ -9,11 +9,8 @@ export function Education() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Education"
-          title={
-            <>
-              Studied at <span className="aurora-text">UiTM</span>
-            </>
-          }
+          title="Studied at"
+          accent="UiTM"
           intro="Universiti Teknologi MARA — from a diploma through to a Master's in Information Technology."
         />
 

@@ -2,6 +2,7 @@ import { profile, socials } from "@/lib/data";
 import { Reveal } from "@/components/Reveal";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { socialIcons, MailIcon } from "@/components/icons";
+import { SplitText } from "@/components/text/SplitText";
 
 export function Contact() {
   return (
@@ -19,8 +20,13 @@ export function Contact() {
             />
             <span className="eyebrow">Contact</span>
             <h2 className="mx-auto mt-5 max-w-2xl text-4xl font-semibold text-ink sm:text-6xl">
-              Let&apos;s build something{" "}
-              <span className="aurora-text">worth shipping.</span>
+              <SplitText text="Let's build something" by="word" />{" "}
+              <SplitText
+                text="worth shipping."
+                by="word"
+                innerClassName="aurora-text"
+                delay={0.1}
+              />
             </h2>
             <p className="mx-auto mt-5 max-w-xl text-ink-dim">
               {profile.availability}. Whether it&apos;s an idea, a role, or a

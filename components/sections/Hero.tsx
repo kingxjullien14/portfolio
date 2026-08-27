@@ -5,6 +5,7 @@ import { profile, socials } from "@/lib/data";
 import { MagneticButton } from "@/components/ui/MagneticButton";
 import { ArrowDown, DownloadIcon, socialIcons } from "@/components/icons";
 import { EASE } from "@/lib/motion";
+import { SplitText } from "@/components/text/SplitText";
 
 const container: Variants = {
   hidden: {},
@@ -56,12 +57,17 @@ export function Hero() {
             </motion.span>
           </h1>
 
-          <motion.p
-            variants={item}
+          <SplitText
+            as="p"
+            text={`${profile.heroLead}.`}
+            by="word"
+            blur={6}
+            trigger="load"
+            delay={0.7}
+            duration={0.9}
+            stagger={0.03}
             className="mt-8 max-w-2xl text-xl font-medium leading-snug text-ink sm:text-2xl"
-          >
-            {profile.heroLead}.
-          </motion.p>
+          />
           <motion.p
             variants={item}
             className="mt-4 max-w-xl text-base leading-relaxed text-ink-dim"

@@ -10,11 +10,8 @@ export function Projects() {
       <div className="container-x">
         <SectionHeading
           eyebrow="Selected Work"
-          title={
-            <>
-              Things I&apos;ve <span className="aurora-text">shipped</span>
-            </>
-          }
+          title="Things I've"
+          accent="shipped"
           intro="Production platforms behind FatHopes Energy's used-cooking-oil collection and energy-feedstock trading operations."
         />
 

@@ -2,6 +2,7 @@ import { skillGroups } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { skillIcons } from "@/components/icons";
+import { KineticMarquee } from "@/components/text/KineticMarquee";
 
 const marquee = [
   "Next.js",
@@ -64,26 +65,7 @@ export function Skills() {
         </div>
 
         {/* core tech ticker */}
-        <div
-          className="relative mt-12 overflow-hidden"
-          style={{
-            maskImage:
-              "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
-            WebkitMaskImage:
-              "linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent)",
-          }}
-        >
-          <div className="marquee-track flex w-max gap-10 whitespace-nowrap">
-            {[...marquee, ...marquee].map((t, i) => (
-              <span
-                key={i}
-                className="font-display text-lg font-medium text-ink-faint"
-              >
-                {t}
-              </span>
-            ))}
-          </div>
-        </div>
+        <KineticMarquee items={marquee} className="mt-12" />
       </div>
     </section>
   );

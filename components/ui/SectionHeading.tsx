@@ -1,16 +1,18 @@
 "use client";
 
-import type { ReactNode } from "react";
 import { Reveal } from "@/components/Reveal";
+import { SplitText } from "@/components/text/SplitText";
 
 export function SectionHeading({
   eyebrow,
   title,
+  accent,
   intro,
   align = "left",
 }: {
   eyebrow: string;
-  title: ReactNode;
+  title: string;
+  accent?: string;
   intro?: string;
   align?: "left" | "center";
 }) {
@@ -23,11 +25,22 @@ export function SectionHeading({
           <span className="eyebrow">{eyebrow}</span>
         </div>
       </Reveal>
-      <Reveal delay={0.05}>
-        <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">{title}</h2>
-      </Reveal>
+      <h2 className="mt-4 text-4xl font-semibold text-ink sm:text-5xl">
+        <SplitText text={title} by="word" />
+        {accent ? (
+          <>
+            {" "}
+            <SplitText
+              text={accent}
+              by="word"
+              innerClassName="aurora-text"
+              delay={0.08}
+            />
+          </>
+        ) : null}
+      </h2>
       {intro && (
-        <Reveal delay={0.1}>
+        <Reveal delay={0.15}>
           <p className="mt-4 text-base leading-relaxed text-ink-dim sm:text-lg">
             {intro}
           </p>

@@ -3,6 +3,7 @@ import { about, profile } from "@/lib/data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { Reveal } from "@/components/Reveal";
 import { MapPinIcon } from "@/components/icons";
+import { ScrollReveal } from "@/components/text/ScrollReveal";
 
 export function About() {
   return (
@@ -39,17 +40,11 @@ export function About() {
           </Reveal>
 
           <div>
-            <SectionHeading
-              eyebrow="About"
-              title={
-                <>
-                  Full-stack, <span className="aurora-text">end to end.</span>
-                </>
-              }
+            <SectionHeading eyebrow="About" title="Full-stack," accent="end to end." />
+            <ScrollReveal
+              text={about.lead}
+              className="mt-6 text-lg leading-relaxed text-ink"
             />
-            <Reveal delay={0.1}>
-              <p className="mt-6 text-lg leading-relaxed text-ink">{about.lead}</p>
-            </Reveal>
             {about.paragraphs.map((p, i) => (
               <Reveal key={i} delay={0.15 + i * 0.05}>
                 <p className="mt-4 leading-relaxed text-ink-dim">{p}</p>
