@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# impeccable scratch (screenshots, decision pages, one-off payloads)
+/.impeccable/tmp/
+/.impeccable/review/
+/.impeccable/questions/
+/.impeccable/mocks/
+/.impeccable/config.local.json

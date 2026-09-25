@@ -1,56 +1,72 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Inter, JetBrains_Mono } from "next/font/google";
+import { Archivo, Fraunces, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
-import { AuroraBackground } from "@/components/AuroraBackground";
-import { Cursor } from "@/components/Cursor";
-import { SmoothScroll } from "@/components/SmoothScroll";
 import { MotionProvider } from "@/components/MotionProvider";
-import { Preloader } from "@/components/Preloader";
-import { Nav } from "@/components/Nav";
-import { Footer } from "@/components/Footer";
 import { profile } from "@/lib/data";
 
-const sora = Sora({
-  variable: "--font-sora",
+const archivo = Archivo({
+  variable: "--font-archivo",
   subsets: ["latin"],
+  axes: ["wdth"],
+  style: ["normal", "italic"],
   display: "swap",
 });
+
+// The next four only dress the recreated app screens, so they never block paint.
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
+});
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  axes: ["opsz"],
+  style: ["normal", "italic"],
+  display: "swap",
+  preload: false,
 });
 const jetbrains = JetBrains_Mono({
   variable: "--font-jetbrains",
   subsets: ["latin"],
   display: "swap",
+  preload: false,
 });
+const spaceGrotesk = Space_Grotesk({
+  variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+});
+
+const title = `${profile.name}, ${profile.role}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.jullienazreen.com"),
   alternates: { canonical: "/" },
   title: {
-    default: `${profile.name} — ${profile.role}`,
+    default: title,
     template: `%s · ${profile.name}`,
   },
-  description: profile.heroSub,
+  description: profile.metaDescription,
   keywords: [
     "Jullien Nazreen",
     "Full-Stack Developer",
     "Next.js",
-    "React",
     "Flutter",
     "TypeScript",
     "GraphQL",
-    "Node.js",
+    "Nitro",
+    "Prisma",
     "Malaysia",
     "Portfolio",
   ],
   authors: [{ name: profile.name }],
   creator: profile.name,
   openGraph: {
-    title: `${profile.name} — ${profile.role}`,
-    description: profile.heroSub,
+    title,
+    description: profile.metaDescription,
     url: "https://www.jullienazreen.com",
     type: "website",
     locale: "en_US",
@@ -58,35 +74,36 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${profile.name} — ${profile.role}`,
-    description: profile.heroSub,
+    title,
+    description: profile.metaDescription,
   },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#08040e",
-  colorScheme: "dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "#d6dbd4" },
+    { media: "(prefers-color-scheme: dark)", color: "#151815" },
+  ],
 };
+
+// Runs before first paint: restores the shift (day or night) and, when motion
+// is welcome, arms the split-flap intro and scroll reveals. If hydration never
+// arrives, a timer disarms everything so the content still shows.
+const bootScript = `(function(){try{var d=document.documentElement;var t=localStorage.getItem("shift");if(t!=="day"&&t!=="night"){t=matchMedia("(prefers-color-scheme: dark)").matches?"night":"day"}d.setAttribute("data-theme",t);if(!matchMedia("(prefers-reduced-motion: reduce)").matches){d.classList.add("motion-ok");window.__bootT=setTimeout(function(){d.classList.remove("motion-ok")},4500)}}catch(e){}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${sora.variable} ${inter.variable} ${jetbrains.variable}`}
+      data-theme="day"
+      className={`${archivo.variable} ${inter.variable} ${fraunces.variable} ${jetbrains.variable} ${spaceGrotesk.variable}`}
       suppressHydrationWarning
     >
-      <body className="antialiased">
-        <Preloader />
-        <AuroraBackground />
-        <div className="grain-overlay" aria-hidden />
-        <MotionProvider>
-          <Cursor />
-          <SmoothScroll>
-            <Nav />
-            <main>{children}</main>
-            <Footer />
-          </SmoothScroll>
-        </MotionProvider>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: bootScript }} />
+      </head>
+      <body>
+        <MotionProvider>{children}</MotionProvider>
       </body>
     </html>
   );

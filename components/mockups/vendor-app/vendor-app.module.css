@@ -1,0 +1,59 @@
+/* Keyframes for the Vendor App mock. Everything here is motion-only: with
+   reduced motion the elements keep their settled, static look. */
+
+/* Live collector ring. Static: a faint halo. Animated: a soft pulse. */
+.pulse {
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(1.75);
+  opacity: 0.2;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .pulse {
+    animation: va-pulse 1.8s cubic-bezier(0.25, 0.6, 0.3, 1) infinite;
+  }
+  .paused .pulse {
+    animation-play-state: paused;
+  }
+  .spin {
+    animation: va-spin 600ms cubic-bezier(0.3, 0.7, 0.2, 1);
+  }
+}
+
+@keyframes va-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(2.9);
+    opacity: 0;
+  }
+}
+
+@keyframes va-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Focus ring for the mock's few real controls. The portfolio's global
+   :focus-visible rule is unlayered (so it outranks Tailwind utilities) and
+   squares corners to 3px; this outranks it and hands the radius back to the
+   element's own utility via revert-layer. */
+.root.root :focus-visible {
+  outline: 2px solid #00b4ff;
+  outline-offset: 2px;
+  border-radius: revert-layer;
+}
+.root.root .inset:focus-visible {
+  outline-offset: -2px;
+}
+
+.root button {
+  cursor: pointer;
+}

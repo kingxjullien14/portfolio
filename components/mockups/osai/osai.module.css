@@ -1,0 +1,574 @@
+/* ============================================================
+   OSAI recreation · "Neon Glass" tokens and materials.
+   Values mirror OSAI src/App.css with the default orange accent.
+   Every length is expressed in --mu (one design pixel) so the
+   screen scales as one piece.
+   ============================================================ */
+
+.root {
+  --o-accent: #f26522;
+  --o-accent-hover: #f4814a;
+  --o-accent-soft: rgb(242 101 34 / 0.15);
+  --o-cyan: #3de8ff;
+  --o-violet: #b18aff;
+  --o-bg: oklch(0.155 0.006 240);
+  --o-pane: oklch(0.132 0.006 240);
+  --o-panel: color-mix(in srgb, oklch(0.158 0.005 240), var(--o-accent) 9%);
+  --o-panel-2: color-mix(in srgb, oklch(0.172 0.005 240), var(--o-accent) 11%);
+  --o-border: rgb(255 255 255 / 0.07);
+  --o-border-strong: rgb(255 255 255 / 0.12);
+  --o-text: #eeeeee;
+  --o-text-2: #b4b6b8;
+  --o-muted: #808284;
+  --o-faint: #58595c;
+  --o-success: #4ade80;
+  --o-warning: #facc15;
+  --o-danger: #fca5a5;
+  --o-info: #60a5fa;
+
+  --o-glass-bg: color-mix(in srgb, var(--o-panel-2) 70%, transparent);
+  --o-glass-bg-strong: color-mix(in srgb, var(--o-panel-2) 86%, transparent);
+  --o-surface-edge: color-mix(in srgb, var(--o-accent) 26%, transparent);
+  --o-surface-edge-strong: color-mix(in srgb, var(--o-accent) 42%, transparent);
+  --o-glass-edge: rgb(255 255 255 / 0.09);
+  --o-blur: calc(var(--mu) * 16);
+
+  --o-shadow-pop: 0 calc(var(--mu) * 12) calc(var(--mu) * 32) calc(var(--mu) * -8) rgb(0 0 0 / 0.5);
+  --o-glow-soft: 0 calc(var(--mu) * 8) calc(var(--mu) * 26) calc(var(--mu) * -10)
+    color-mix(in srgb, var(--o-accent) 38%, transparent);
+  --o-ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: var(--o-bg);
+  color: var(--o-text);
+  caret-color: var(--o-accent);
+  /* the app's mono is SF Mono: no programming ligatures (=> stays =>) */
+  font-variant-ligatures: no-contextual;
+}
+
+.root ::selection {
+  background: rgb(242 101 34 / 0.3);
+}
+
+/* focus: the app's restrained accent ring. The portfolio's global rule
+   squares every focused corner, so hand the radius back to the utilities. */
+.root :focus-visible {
+  outline: max(1.5px, calc(var(--mu) * 2)) solid color-mix(in srgb, var(--o-accent) 60%, transparent);
+  outline-offset: max(1px, calc(var(--mu) * 2));
+  border-radius: revert-layer;
+}
+.root input:focus-visible {
+  outline: none;
+}
+.root .treeRow:focus-visible {
+  outline-width: 1px;
+  outline-offset: -1px;
+}
+
+/* the macOS window's hairline edge light, drawn above everything */
+.edge {
+  position: absolute;
+  inset: 0;
+  z-index: 70;
+  pointer-events: none;
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+
+/* ---------- ground: the Neon Glass stage and its slow aurora ---------- */
+.stage {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.stage::before {
+  content: "";
+  position: absolute;
+  inset: -8%;
+  background:
+    radial-gradient(calc(var(--mu) * 1100) calc(var(--mu) * 720) at 6% -12%, color-mix(in srgb, var(--o-accent) 16%, transparent), transparent 56%),
+    radial-gradient(calc(var(--mu) * 960) calc(var(--mu) * 700) at 114% 116%, color-mix(in srgb, var(--o-accent) 9%, transparent), transparent 54%),
+    radial-gradient(calc(var(--mu) * 1400) calc(var(--mu) * 900) at 70% 30%, color-mix(in srgb, var(--o-accent) 5%, transparent), transparent 70%);
+  animation: aurora 24s ease-in-out infinite;
+}
+@keyframes aurora {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(1.6%, 1.1%, 0) scale(1.06);
+  }
+}
+
+/* ---------- the workspace: an inset card floating on the stage ---------- */
+.main {
+  background: color-mix(in srgb, var(--o-pane) 92%, transparent);
+  border: 1px solid var(--o-border);
+  box-shadow: 0 calc(var(--mu) * 18) calc(var(--mu) * 50) calc(var(--mu) * -24) rgb(0 0 0 / 0.55);
+}
+
+/* a faint warm pool behind the transcript, the light the composer throws */
+.canvasGlow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(calc(var(--mu) * 620) calc(var(--mu) * 260) at 32% 104%, color-mix(in srgb, var(--o-accent) 7%, transparent), transparent 70%),
+    radial-gradient(calc(var(--mu) * 520) calc(var(--mu) * 420) at 88% 18%, color-mix(in srgb, var(--o-cyan) 2.5%, transparent), transparent 70%);
+}
+
+/* ---------- glass materials ---------- */
+.glassPill {
+  background: color-mix(in srgb, var(--o-panel) 90%, transparent);
+  border: 1px solid var(--o-border-strong);
+  box-shadow: var(--o-shadow-pop), inset 0 1px 0 var(--o-glass-edge);
+  backdrop-filter: blur(calc(var(--mu) * 10));
+  -webkit-backdrop-filter: blur(calc(var(--mu) * 10));
+}
+
+.frame {
+  border: 1px solid var(--o-border);
+  background: color-mix(in srgb, var(--o-panel) 55%, transparent);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.05);
+  backdrop-filter: blur(calc(var(--mu) * 12));
+  -webkit-backdrop-filter: blur(calc(var(--mu) * 12));
+}
+
+.you {
+  border: 1px solid color-mix(in srgb, var(--o-accent) 30%, transparent);
+  background: color-mix(in srgb, var(--o-accent-soft) 82%, transparent);
+  box-shadow: var(--o-glow-soft), inset 0 1px 0 rgb(255 255 255 / 0.04);
+  backdrop-filter: blur(calc(var(--mu) * 12));
+  -webkit-backdrop-filter: blur(calc(var(--mu) * 12));
+}
+
+.tool {
+  border: 1px solid var(--o-border);
+  background: color-mix(in srgb, var(--o-panel) 40%, transparent);
+}
+
+.code {
+  background: var(--o-glass-bg);
+  border: 1px solid var(--o-surface-edge);
+  box-shadow: inset 0 1px 0 var(--o-glass-edge);
+  backdrop-filter: blur(var(--o-blur)) saturate(1.3);
+  -webkit-backdrop-filter: blur(var(--o-blur)) saturate(1.3);
+}
+
+/* ---------- the composer deck ---------- */
+.deck {
+  position: relative;
+  isolation: isolate;
+  background: var(--o-glass-bg-strong);
+  border: 1px solid var(--o-surface-edge-strong);
+  backdrop-filter: blur(var(--o-blur)) saturate(1.4);
+  -webkit-backdrop-filter: blur(var(--o-blur)) saturate(1.4);
+  transition:
+    border-color 200ms var(--o-ease),
+    box-shadow 200ms var(--o-ease);
+  animation: deckBreathe 5.5s ease-in-out infinite;
+}
+/* light pooling inside the glass: accent from the top-left, cold cyan low right */
+.deck::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.5;
+  filter: blur(calc(var(--mu) * 26));
+  transition: opacity 0.5s ease;
+  background:
+    radial-gradient(60% 95% at 12% 0%, color-mix(in srgb, var(--o-accent) 52%, transparent), transparent 70%),
+    radial-gradient(50% 80% at 88% 100%, color-mix(in srgb, var(--o-cyan) 24%, transparent), transparent 72%),
+    radial-gradient(44% 60% at 64% 12%, color-mix(in srgb, var(--o-accent) 30%, transparent), transparent 70%);
+}
+.deck:focus-within {
+  animation: none;
+  border-color: color-mix(in srgb, var(--o-accent) 60%, transparent);
+  box-shadow: 0 calc(var(--mu) * 10) calc(var(--mu) * 34) calc(var(--mu) * -12) color-mix(in srgb, var(--o-accent) 55%, transparent);
+}
+.deck:focus-within::before {
+  opacity: 0.85;
+}
+.deckLive,
+.deckLive:focus-within {
+  animation: deckLive 2.4s ease-in-out infinite;
+}
+@keyframes deckBreathe {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 transparent;
+    border-color: var(--o-surface-edge-strong);
+  }
+  50% {
+    box-shadow: 0 calc(var(--mu) * 8) calc(var(--mu) * 36) calc(var(--mu) * -10) color-mix(in srgb, var(--o-accent) 50%, transparent);
+    border-color: color-mix(in srgb, var(--o-accent) 40%, transparent);
+  }
+}
+@keyframes deckLive {
+  0%,
+  100% {
+    box-shadow: 0 0 calc(var(--mu) * 16) calc(var(--mu) * -10) color-mix(in srgb, var(--o-accent) 42%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 calc(var(--mu) * 28) calc(var(--mu) * -6) color-mix(in srgb, var(--o-accent) 62%, transparent);
+  }
+}
+
+/* the context filament: the deck's top edge doubles as the context meter */
+.filFill {
+  position: relative;
+  height: 100%;
+  border-radius: 9999px;
+  background: linear-gradient(90deg, var(--o-accent), color-mix(in srgb, var(--o-accent) 45%, var(--o-cyan)));
+  box-shadow: 0 0 calc(var(--mu) * 8) color-mix(in srgb, var(--o-accent) 55%, transparent);
+  overflow: hidden;
+}
+.filSheen {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgb(255 255 255 / 0.55), transparent);
+  animation: sheen 1.6s linear infinite;
+}
+@keyframes sheen {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(100%);
+  }
+}
+
+/* the send orb */
+.orbReady {
+  background: linear-gradient(135deg, var(--o-accent), color-mix(in srgb, var(--o-accent) 55%, var(--o-cyan)));
+  color: #fff;
+  box-shadow: 0 0 calc(var(--mu) * 18) calc(var(--mu) * -4) color-mix(in srgb, var(--o-accent) 70%, transparent);
+}
+.orbStop {
+  position: relative;
+  background: var(--o-accent-soft);
+  color: var(--o-accent);
+  border: 1px solid color-mix(in srgb, var(--o-accent) 50%, transparent);
+}
+.orbStop::after {
+  content: "";
+  position: absolute;
+  inset: calc(var(--mu) * -4);
+  border-radius: 9999px;
+  border: 1px solid color-mix(in srgb, var(--o-accent) 45%, transparent);
+  pointer-events: none;
+  animation: orbBreathe 1.8s ease-in-out infinite;
+}
+@keyframes orbBreathe {
+  0%,
+  100% {
+    opacity: 0.25;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.9;
+    transform: scale(1.12);
+  }
+}
+
+/* ---------- live details ---------- */
+.spin {
+  animation: spin 0.9s linear infinite;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* live status words ("streaming", "working") breathe in solid accent */
+.breathe {
+  color: var(--o-accent);
+  animation: breathe 1.8s ease-in-out infinite;
+}
+@keyframes breathe {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.45;
+  }
+}
+
+.caret {
+  display: inline-block;
+  width: calc(var(--mu) * 2);
+  height: 1.05em;
+  margin-left: calc(var(--mu) * 2);
+  vertical-align: -0.16em;
+  background: var(--o-accent);
+  animation: caret 1s steps(1) infinite;
+}
+@keyframes caret {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0.2;
+  }
+}
+
+.dotActive {
+  background: var(--o-success);
+  animation: dotPulse 3s ease-in-out infinite;
+}
+@keyframes dotPulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgb(74 222 128 / 0.6);
+  }
+  50% {
+    box-shadow: 0 0 0 calc(var(--mu) * 4) transparent;
+  }
+}
+
+.busyDot {
+  animation: busy 1.4s ease-in-out infinite;
+}
+@keyframes busy {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+
+/* entrances: steps list rows and new transcript blocks */
+.rise {
+  animation: rise 320ms var(--o-ease) both;
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(calc(var(--mu) * 6));
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* one-shot highlight when a file is revealed in the tree */
+.flash {
+  animation: flash 1.2s ease-out both;
+}
+@keyframes flash {
+  0%,
+  30% {
+    background-color: color-mix(in srgb, var(--o-accent) 30%, transparent);
+  }
+  100% {
+    background-color: color-mix(in srgb, var(--o-accent) 13%, transparent);
+  }
+}
+
+/* the transcript fades out under the floating tab strip */
+.fadeTop {
+  -webkit-mask-image: linear-gradient(to bottom, transparent 0, #000 calc(var(--mu) * 64));
+  mask-image: linear-gradient(to bottom, transparent 0, #000 calc(var(--mu) * 64));
+}
+
+/* ---------- the floating files window ---------- */
+.window {
+  background: color-mix(in srgb, var(--o-pane) 94%, transparent);
+  border: 1px solid var(--o-border-strong);
+  box-shadow:
+    0 calc(var(--mu) * 24) calc(var(--mu) * 60) calc(var(--mu) * -16) rgb(0 0 0 / 0.6),
+    0 0 0 1px rgb(0 0 0 / 0.35);
+  backdrop-filter: blur(var(--o-blur));
+  -webkit-backdrop-filter: blur(var(--o-blur));
+}
+.chrome {
+  background: color-mix(in srgb, var(--o-panel) 55%, transparent);
+  box-shadow: inset 0 1px 0 var(--o-glass-edge);
+  backdrop-filter: blur(calc(var(--mu) * 12));
+  -webkit-backdrop-filter: blur(calc(var(--mu) * 12));
+}
+
+/* ---------- scroll rail ---------- */
+.thumb {
+  background: color-mix(in srgb, var(--o-accent) 45%, transparent);
+  box-shadow: var(--o-glow-soft);
+}
+
+/* ---------- the glass spirit ----------
+   These run on SVG groups, where transform lengths are viewBox user units
+   (100 across the pet), so they scale with the drawing on their own. */
+.petFloat {
+  animation: petFloat 4.8s ease-in-out infinite;
+}
+@keyframes petFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+.petShadow {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: petShadow 4.8s ease-in-out infinite;
+}
+@keyframes petShadow {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.55;
+  }
+  50% {
+    transform: scale(0.8);
+    opacity: 0.3;
+  }
+}
+.petEyes {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: petBlink 6.4s infinite;
+}
+@keyframes petBlink {
+  0%,
+  46%,
+  50%,
+  92%,
+  96%,
+  100% {
+    transform: scaleY(1);
+  }
+  48%,
+  94% {
+    transform: scaleY(0.1);
+  }
+}
+.petCore {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: petCore 3.2s ease-in-out infinite;
+}
+@keyframes petCore {
+  0%,
+  100% {
+    opacity: 0.65;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+.petCursor {
+  animation: petCursor 2.6s steps(1) infinite;
+}
+@keyframes petCursor {
+  0%,
+  62% {
+    opacity: 1;
+  }
+  63%,
+  100% {
+    opacity: 0.35;
+  }
+}
+.petHop {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: petHop 700ms var(--o-ease) both;
+}
+@keyframes petHop {
+  0% {
+    transform: translateY(0) scale(1, 1);
+  }
+  22% {
+    transform: translateY(0) scale(1.08, 0.9);
+  }
+  48% {
+    transform: translateY(-18%) scale(0.95, 1.07);
+  }
+  76% {
+    transform: translateY(0) scale(1.05, 0.95);
+  }
+  100% {
+    transform: translateY(0) scale(1, 1);
+  }
+}
+
+/* ---------- the command palette ---------- */
+.palBar {
+  border: 1px solid color-mix(in srgb, var(--o-accent) 35%, transparent);
+  background: color-mix(in srgb, var(--o-panel-2) 90%, transparent);
+  box-shadow:
+    0 0 calc(var(--mu) * 34) calc(var(--mu) * -8) color-mix(in srgb, var(--o-accent) 45%, transparent),
+    inset 0 1px 0 rgb(255 255 255 / 0.08);
+  backdrop-filter: blur(calc(var(--mu) * 40));
+  -webkit-backdrop-filter: blur(calc(var(--mu) * 40));
+}
+.palCard {
+  border: 1px solid var(--o-border-strong);
+  background: color-mix(in srgb, var(--o-panel) 88%, transparent);
+  box-shadow: var(--o-shadow-pop), inset 0 1px 0 rgb(255 255 255 / 0.06);
+  backdrop-filter: blur(calc(var(--mu) * 40));
+  -webkit-backdrop-filter: blur(calc(var(--mu) * 40));
+}
+.palRowActive {
+  background: color-mix(in srgb, var(--o-accent) 13%, transparent);
+  box-shadow: inset 0 0 calc(var(--mu) * 26) calc(var(--mu) * -12) var(--o-accent);
+}
+.palBarMark {
+  background: linear-gradient(180deg, var(--o-accent), var(--o-cyan));
+  box-shadow: var(--o-glow-soft);
+}
+.palFilament {
+  background: linear-gradient(90deg, var(--o-violet), var(--o-cyan) 62%, transparent);
+  opacity: 0.75;
+}
+
+/* ---------- motion governance ---------- */
+.root[data-paused="true"] *,
+.root[data-paused="true"] *::before,
+.root[data-paused="true"] *::after {
+  animation-play-state: paused !important;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage::before,
+  .deck,
+  .deckLive,
+  .filSheen,
+  .orbStop::after,
+  .breathe,
+  .caret,
+  .dotActive,
+  .busyDot,
+  .rise,
+  .flash,
+  .petFloat,
+  .petShadow,
+  .petEyes,
+  .petCore,
+  .petCursor,
+  .petHop {
+    animation: none !important;
+  }
+  .deck,
+  .deck::before {
+    transition: none;
+  }
+}

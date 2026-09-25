@@ -1,67 +1,62 @@
+import { ArrowUpRight, DownloadSimple, EnvelopeSimple, GithubLogo, LinkedinLogo } from "@phosphor-icons/react/dist/ssr";
 import { profile, socials } from "@/lib/data";
-import { Reveal } from "@/components/Reveal";
-import { MagneticButton } from "@/components/ui/MagneticButton";
-import { socialIcons, MailIcon } from "@/components/icons";
-import { SplitText } from "@/components/text/SplitText";
+import { SectionHead } from "@/components/ui/SectionHead";
+import { CopyEmail } from "@/components/contact/CopyEmail";
+import { ShiftSummary } from "@/components/contact/ShiftSummary";
+
+const icons = { github: GithubLogo, linkedin: LinkedinLogo } as const;
 
 export function Contact() {
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
-      <div className="container-x">
-        <Reveal>
-          <div className="glass relative overflow-hidden rounded-[2.5rem] px-6 py-16 text-center sm:px-16 sm:py-24">
-            <div
-              aria-hidden
-              className="absolute inset-0 -z-10"
-              style={{
-                background:
-                  "radial-gradient(60% 60% at 50% 0%, rgba(180,91,207,0.22), transparent 70%)",
-              }}
-            />
-            <span className="eyebrow">Contact</span>
-            <h2 className="mx-auto mt-5 max-w-2xl text-4xl font-semibold text-ink sm:text-6xl">
-              <SplitText text="Let's build something" by="word" />{" "}
-              <SplitText
-                text="worth shipping."
-                by="word"
-                innerClassName="aurora-text"
-                delay={0.1}
-              />
-            </h2>
-            <p className="mx-auto mt-5 max-w-xl text-ink-dim">
-              {profile.contactNote}
-            </p>
+    <section id="contact" className="seam section-pad" aria-labelledby="contact-title">
+      <div className="frame">
+        <SectionHead id="contact-title" title="Open a channel">
+          {profile.contactNote}
+        </SectionHead>
 
-            <div className="mt-9 flex flex-wrap items-center justify-center gap-3">
-              <MagneticButton href={`mailto:${profile.email}`} variant="primary">
-                <MailIcon className="h-4 w-4" /> {profile.email}
-              </MagneticButton>
-              <MagneticButton href={profile.resumeUrl} download variant="ghost">
-                Download CV
-              </MagneticButton>
+        <div className="housing mt-[calc(var(--cell)*2)] p-[calc(var(--cell)*0.35)]" data-reveal="rise">
+          <div className="well grid gap-[calc(var(--cell)*1)] p-[calc(var(--cell)*0.9)] md:grid-cols-[1fr_auto] md:items-center md:p-[calc(var(--cell)*1.3)]">
+            <div className="grid gap-2">
+              <p className="engraved text-housing-ink opacity-70">Direct line</p>
+              <a
+                href={`mailto:${profile.email}`}
+                className="w-max max-w-full break-all text-[clamp(1.35rem,3.4vw,2.6rem)] leading-tight font-semibold tracking-tight text-flap-ink underline decoration-white/20 decoration-1 underline-offset-[0.2em] hover:decoration-white/60"
+              >
+                {profile.email}
+              </a>
+              <ShiftSummary />
             </div>
-
-            <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
-              {socials.map((s) => {
-                const Icon = socialIcons[s.icon];
-                return (
-                  <a
-                    key={s.label}
-                    href={s.href}
-                    target={s.icon !== "mail" ? "_blank" : undefined}
-                    rel="noreferrer"
-                    aria-label={s.label}
-                    data-cursor="hover"
-                    className="flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 text-sm text-ink-dim transition-colors hover:text-white"
-                  >
-                    <Icon className="h-4 w-4" />
-                    <span className="hidden sm:inline">{s.handle}</span>
-                  </a>
-                );
-              })}
+            <div className="flex flex-wrap items-center gap-3">
+              <a href={`mailto:${profile.email}`} className="callbtn">
+                <EnvelopeSimple weight="bold" className="size-4" aria-hidden />
+                Email me
+              </a>
+              <CopyEmail email={profile.email} />
             </div>
           </div>
-        </Reveal>
+        </div>
+
+        <ul className="mt-[calc(var(--cell)*0.9)] flex flex-wrap gap-3" data-reveal="rise" style={{ "--d": "120ms" } as React.CSSProperties}>
+          {socials.map((s) => {
+            const Icon = icons[s.icon];
+            return (
+              <li key={s.label}>
+                <a href={s.href} target="_blank" rel="noreferrer" className="keycap">
+                  <Icon weight="bold" className="size-4" aria-hidden />
+                  {s.label}
+                  <span className="text-ink-3">{s.handle}</span>
+                  <ArrowUpRight weight="bold" className="size-3.5" aria-hidden />
+                </a>
+              </li>
+            );
+          })}
+          <li>
+            <a href={profile.resumeUrl} download className="keycap">
+              <DownloadSimple weight="bold" className="size-4" aria-hidden />
+              Download CV
+            </a>
+          </li>
+        </ul>
       </div>
     </section>
   );

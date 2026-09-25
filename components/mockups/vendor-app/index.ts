@@ -1,0 +1,1 @@
+export { VendorAppMock } from "./VendorAppMock";
