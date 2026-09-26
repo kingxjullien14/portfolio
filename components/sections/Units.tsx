@@ -39,8 +39,10 @@ export function Units() {
             </div>
           </div>
           <div>
-            <h3 className="display text-[clamp(2rem,4vw,3.25rem)] text-ink">Built on my own time</h3>
-            <p className="mt-2 max-w-[52ch] text-ink-2">Two products I design, build and ship myself.</p>
+            <h3 className="sr-only">Built on my own time</h3>
+            <p className="max-w-[46ch] text-[1.3125rem] leading-[1.35] font-medium text-ink">
+              Two products I design, build and ship on my own time.
+            </p>
           </div>
         </div>
 

@@ -34,15 +34,22 @@ export function Record() {
           ))}
         </ol>
 
-        <div id="education" className="mt-[calc(var(--cell)*2.4)] scroll-mt-24">
-          <h3 className="display text-[clamp(2rem,4vw,3.25rem)] text-ink">Training</h3>
-          <ol className="mt-[calc(var(--cell)*0.9)] grid gap-[calc(var(--cell)*0.6)] md:grid-cols-3">
+        <div id="education" className="enamel mt-[calc(var(--cell)*0.6)] scroll-mt-24 px-[calc(var(--cell)*0.7)]">
+          <h3 className="engraved border-b border-line py-[calc(var(--cell)*0.5)] text-ink-2">Training</h3>
+          <ol className="divide-y divide-line">
             {education.map((ed, i) => (
-              <li key={ed.degree} className="enamel-sunk grid content-start gap-2 p-[calc(var(--cell)*0.7)]" data-reveal="rise" style={{ "--d": `${i * 80}ms` } as React.CSSProperties}>
-                <p className="text-[0.875rem] text-ink-3 tnum">{ed.period}</p>
-                <p className="text-[1.125rem] leading-snug font-semibold text-ink">{ed.degree}</p>
-                {ed.field ? <p className="text-[0.9375rem] text-ink-2">{ed.field}</p> : null}
-                <p className="mt-auto pt-2 text-[0.9375rem] text-ink-2">{ed.school}</p>
+              <li
+                key={ed.degree}
+                className="grid gap-x-[calc(var(--cell)*1)] gap-y-1 py-[calc(var(--cell)*0.6)] md:grid-cols-[calc(var(--cell)*6.2)_1fr] lg:grid-cols-[calc(var(--cell)*6.2)_minmax(0,1fr)_minmax(0,1.3fr)]"
+                data-reveal="rise"
+                style={{ "--d": `${i * 70}ms` } as React.CSSProperties}
+              >
+                <p className="text-[0.9375rem] text-ink-3 tnum md:pl-[calc(0.55rem+0.625rem)]">{ed.period}</p>
+                <p className="text-[1.0625rem] leading-snug font-semibold text-ink">{ed.degree}</p>
+                <p className="text-[0.9375rem] text-ink-2 md:col-start-2 lg:col-start-auto">
+                  {ed.school}
+                  {ed.field ? <span className="text-ink-3">, {ed.field}</span> : null}
+                </p>
               </li>
             ))}
           </ol>

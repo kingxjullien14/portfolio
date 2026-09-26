@@ -1,49 +1,43 @@
 import type { ReactNode } from "react";
 import type { UnitId } from "@/lib/data";
 import { BrowserFrame, PhoneFrame, WindowFrame } from "./frames";
-import { VendorAppMock } from "./vendor-app/VendorAppMock";
-import { TradingPortalMock } from "./trading-portal/TradingPortalMock";
-import { VendorPortalMock } from "./vendor-portal/VendorPortalMock";
-import { WwsDashboardsMock } from "./wws-dashboards/WwsDashboardsMock";
-import { ApiPlatformMock } from "./api-platform/ApiPlatformMock";
-import { OsaiMock } from "./osai/OsaiMock";
-import { StoneChiselMock } from "./stone-chisel/StoneChiselMock";
+import { LazyScreen } from "./LazyScreen";
 
 /** Which recreated screen sits in which bay, already mounted in its frame. */
 export const screens: Record<UnitId, ReactNode> = {
   "vendor-app": (
     <PhoneFrame className="w-full max-w-[340px]">
-      <VendorAppMock />
+      <LazyScreen id="vendor-app" name="Vendor App" />
     </PhoneFrame>
   ),
   "trading-portal": (
     <BrowserFrame url="tradingpanel.demo/purchase-contracts">
-      <TradingPortalMock />
+      <LazyScreen id="trading-portal" name="Trading Portal" />
     </BrowserFrame>
   ),
   "vendor-portal": (
     <BrowserFrame url="vendorportal.demo/dashboard">
-      <VendorPortalMock />
+      <LazyScreen id="vendor-portal" name="Vendor Portal" />
     </BrowserFrame>
   ),
   "wws-dashboards": (
     <BrowserFrame url="wws.demo/weekly-collection">
-      <WwsDashboardsMock />
+      <LazyScreen id="wws-dashboards" name="WWS Dashboards" />
     </BrowserFrame>
   ),
   "api-platform": (
     <BrowserFrame url="api.demo/graphql">
-      <ApiPlatformMock />
+      <LazyScreen id="api-platform" name="API Platform" />
     </BrowserFrame>
   ),
   osai: (
     <WindowFrame>
-      <OsaiMock />
+      <LazyScreen id="osai" name="OSAI" />
     </WindowFrame>
   ),
   "stone-chisel": (
     <BrowserFrame url="stonenchisel.com/notes/carving-a-calm-editor">
-      <StoneChiselMock />
+      <LazyScreen id="stone-chisel" name="Stone & Chisel" />
     </BrowserFrame>
   ),
 };

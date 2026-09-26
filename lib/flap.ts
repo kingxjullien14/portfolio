@@ -1,8 +1,9 @@
 /**
  * Split-flap engine. Each cell is four half-leaves: a static top and bottom,
- * plus a top leaf that falls and a bottom leaf that lands. Flips run on the
- * Web Animations API (transform and opacity only), so a board of a few
- * hundred cells never touches React state while it spins.
+ * plus a top leaf that falls and a bottom leaf that lands. Distant characters
+ * spin past as plain text swaps; only the final two flips animate real leaves
+ * (2D transforms on the Web Animations API), so a board of a few hundred cells
+ * stays smooth and never touches React state.
  */
 
 export const FLAP_CHARS = " ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&.-/:'";
@@ -90,12 +91,25 @@ export class FlapCell {
     try {
       while (!this.cancelled && this.current !== this.target) {
         const next = FLAP_CHARS[(indexOf(this.current) + 1) % N];
-        await this.step(this.current, next, stepMs);
+        const remaining = (indexOf(this.target) - indexOf(this.current) + N) % N;
+        // far from home the characters blur past as plain swaps; the last two
+        // are real leaves falling and landing
+        if (remaining > 2) await this.spin(next, stepMs * 0.55);
+        else await this.step(this.current, next, stepMs);
         this.current = next;
       }
     } finally {
       this.running = false;
     }
+  }
+
+  private spin(b: string, ms: number) {
+    const { gTop, gBot, gLeafTop, gLeafBot } = this.p;
+    gTop.textContent = b;
+    gBot.textContent = b;
+    gLeafTop.textContent = b;
+    gLeafBot.textContent = b;
+    return new Promise<void>((resolve) => window.setTimeout(resolve, ms));
   }
 
   private async step(a: string, b: string, ms: number) {
@@ -106,8 +120,10 @@ export class FlapCell {
     gLeafBot.textContent = b;
     const half = ms / 2;
 
+    // 2D scale instead of a 3D hinge: at this speed the eye reads the same fall,
+    // and the compositor never builds a 3D context per cell
     const fall = leafTop.animate(
-      [{ transform: "rotateX(0deg)" }, { transform: "rotateX(-90deg)" }],
+      [{ transform: "scaleY(1)" }, { transform: "scaleY(0)" }],
       { duration: half, easing: FALL, fill: "forwards" },
     );
     this.anims.push(fall);
@@ -119,7 +135,7 @@ export class FlapCell {
     if (this.cancelled) return;
 
     const land = leafBot.animate(
-      [{ transform: "rotateX(90deg)" }, { transform: "rotateX(0deg)" }],
+      [{ transform: "scaleY(0)" }, { transform: "scaleY(1)" }],
       { duration: half, easing: LAND, fill: "forwards" },
     );
     this.anims.push(land);

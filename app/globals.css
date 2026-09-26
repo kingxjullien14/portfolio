@@ -129,10 +129,14 @@ body {
   transition: color 400ms var(--ease-out-strong);
 }
 
-/* stoved-enamel grain: under all content, over the page ground only */
+/* stoved-enamel grain: the length of the document, under all content,
+   over the page ground only (no fixed layer, no filter) */
+body {
+  position: relative;
+}
 body::before {
   content: "";
-  position: fixed;
+  position: absolute;
   inset: 0;
   z-index: -1;
   pointer-events: none;
@@ -140,8 +144,8 @@ body::before {
   opacity: 0.16;
 }
 [data-theme="night"] body::before {
-  opacity: 0.22;
-  filter: invert(1);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0.92 0 0 0 0 0.94 0 0 0 0 0.9 0 0 0 0.55 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.12;
 }
 
 /* pressed seam where two enamel panels meet */
@@ -300,8 +304,8 @@ html {
   font-stretch: 122%;
   font-weight: 620;
   text-transform: uppercase;
-  letter-spacing: 0.085em;
-  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
   line-height: 1;
   box-shadow:
     inset 0 1px 0 oklch(1 0 0 / 0.08),
@@ -337,7 +341,7 @@ html {
   background: radial-gradient(circle at 35% 30%, oklch(0.95 0.08 85), var(--amber) 45%, var(--amber-deep) 100%);
   box-shadow:
     inset 0 0 0 1px oklch(0.45 0.1 55 / 0.6),
-    0 0 0.55rem 0.05rem var(--amber-glow),
+    inset 0 -1px 2px oklch(0.45 0.12 50 / 0.5),
     0 1px 0 var(--bevel-hi);
 }
 
@@ -353,7 +357,6 @@ html {
   flex: none;
   width: var(--fw);
   height: var(--fh);
-  perspective: calc(var(--fh) * 5);
   border-radius: var(--fr);
   background: var(--flap);
   box-shadow:
@@ -408,7 +411,7 @@ html {
   background: linear-gradient(180deg, var(--flap-hi), oklch(0.17 0.003 150));
 }
 .flap-leaf.flap-bot {
-  transform: rotateX(90deg);
+  transform: scaleY(0);
 }
 .flap::after {
   content: "";
@@ -495,17 +498,41 @@ html {
 .brd-row {
   display: flex;
   align-items: center;
-  gap: calc(var(--cell) * 0.55);
+  gap: calc(var(--cell) * 0.3);
+}
+@media (min-width: 768px) {
+  .brd-head,
+  .brd-row {
+    gap: calc(var(--cell) * 0.55);
+  }
+}
+/* row lamps warm up one by one once the cascade has passed */
+.brd-lamp-wrap {
+  display: inline-flex;
+}
+.motion-ok .board .brd-lamp[data-lit="true"] {
+  animation: lamp-warm 420ms var(--ease-out-strong) both;
+  animation-delay: calc(1250ms + var(--i, 0) * 110ms);
+}
+@keyframes lamp-warm {
+  from {
+    background: radial-gradient(circle at 35% 30%, oklch(0.42 0.01 150), oklch(0.16 0.005 150) 70%);
+    box-shadow:
+      inset 0 0 0 1px oklch(0 0 0 / 0.55),
+      0 1px 0 var(--bevel-hi);
+  }
+  45% {
+    background: radial-gradient(circle at 35% 30%, oklch(0.7 0.1 70), oklch(0.45 0.1 60) 70%);
+  }
 }
 .brd-head {
   padding: 0 calc(var(--cell) * 0.25) calc(var(--cell) * 0.3);
   color: var(--housing-ink);
-  opacity: 0.62;
   font-stretch: 122%;
   font-weight: 620;
   text-transform: uppercase;
-  letter-spacing: 0.085em;
-  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  font-size: 0.6875rem;
   line-height: 1;
 }
 .brd-lampcol {
@@ -672,7 +699,6 @@ html {
     inset 0 1px 0 oklch(1 0 0 / 0.55),
     inset 0 0 0 1px oklch(0.5 0.12 55 / 0.55),
     0 3px 0 oklch(0.46 0.1 52),
-    0 0 1.4rem -0.2rem var(--amber-glow),
     0 6px 14px -6px oklch(0.4 0.1 50 / 0.6);
   transition:
     transform 140ms var(--ease-out-strong),
@@ -697,7 +723,7 @@ html {
     inset 0 1px 0 oklch(1 0 0 / 0.45),
     inset 0 0 0 1px oklch(0.5 0.12 55 / 0.55),
     0 0 0 oklch(0.46 0.1 52),
-    0 0 1.8rem 0 var(--amber-glow);
+    0 2px 6px -3px oklch(0.4 0.1 50 / 0.6);
 }
 
 /* console strip */
@@ -1099,6 +1125,10 @@ html {
   background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.5), transparent);
   transform: translateX(-120%);
   animation: oil-run 2.6s linear infinite;
+  animation-play-state: paused;
+}
+.flow-track.is-live .mimic-fill::after {
+  animation-play-state: running;
 }
 @keyframes oil-run {
   to {
@@ -1209,7 +1239,7 @@ html {
 .jack[data-on] .jack-socket {
   background: radial-gradient(circle, oklch(0.08 0 0) 0 30%, var(--amber) 33% 58%, var(--amber-deep) 61%);
   box-shadow:
-    0 0 0.5rem var(--amber-glow),
+    inset 0 1px 1px oklch(0 0 0 / 0.5),
     0 1px 0 oklch(1 0 0 / 0.07);
 }
 

@@ -46,6 +46,16 @@ export function Operator() {
                   <dt className="engraved text-ink-3">Based in</dt>
                   <dd className="mt-1 text-ink">Greater Kuala Lumpur</dd>
                 </div>
+                <div className="col-span-2 border-t border-line pt-3">
+                  <dt className="engraved text-ink-3">Drawn to</dt>
+                  <dd className="mt-2 flex flex-wrap gap-1.5">
+                    {about.focus.map((f) => (
+                      <span key={f} className="tag">
+                        {f}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
               </div>
             </dl>
           </div>
@@ -53,35 +63,20 @@ export function Operator() {
 
         <div className="grid content-start gap-[calc(var(--cell)*1.2)]">
           <SplitText as="h2" id="about-title" text="Who runs the board" className="display text-[clamp(2.75rem,6.4vw,5.6rem)] text-ink" />
-          <ReadAlong text={about.lead} className="max-w-[30ch] text-[clamp(1.55rem,2.7vw,2.35rem)] leading-[1.22] font-medium text-ink" />
+          <ReadAlong text={about.lead} className="max-w-[30ch] text-[clamp(1.55rem,2.7vw,2.35rem)] leading-[1.3] font-medium text-ink" />
           <div className="grid max-w-[60ch] gap-4 text-ink-2" data-reveal="rise">
             {about.paragraphs.map((p) => (
               <p key={p}>{p}</p>
             ))}
           </div>
-          <div className="grid gap-[calc(var(--cell)*0.6)] md:grid-cols-2" data-reveal="rise">
-            <div className="enamel-sunk p-[calc(var(--cell)*0.6)]">
-              <p className="engraved text-ink-3">Drawn to</p>
-              <ul className="mt-3 flex flex-wrap gap-1.5">
-                {about.focus.map((f) => (
-                  <li key={f} className="tag">
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div className="enamel-sunk p-[calc(var(--cell)*0.6)]">
-              <p className="engraved text-ink-3">On the record</p>
-              <ul className="mt-3 grid gap-1.5 text-[0.9375rem] text-ink-2">
-                {about.facts.map((f) => (
-                  <li key={f} className="flex gap-2.5">
-                    <span className="mt-[0.55em] size-1.5 shrink-0 rounded-[1px] bg-ink-3" aria-hidden />
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
+          <ul className="grid max-w-[60ch] gap-1.5 text-[0.9375rem] text-ink-2" data-reveal="rise">
+            {about.facts.map((f) => (
+              <li key={f} className="flex gap-2.5">
+                <span className="mt-[0.6em] size-1.5 shrink-0 rounded-[1px] bg-ink-3" aria-hidden />
+                {f}
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </section>

@@ -43,7 +43,7 @@ export function Bay({
         )}
         <StampOnView id={unit.id} />
       </div>
-      <figcaption className="mt-3 text-[0.8125rem] text-ink-3">
+      <figcaption className="mt-3 max-w-[70ch] text-[0.8125rem] text-ink-3">
         {wide ? <span className="md:hidden">Drag the screen sideways to explore. </span> : null}
         {recreated ? "Recreated with made-up data. The real screens hold customer information." : null}
       </figcaption>
@@ -55,9 +55,15 @@ export function Bay({
       <p className="max-w-[34ch] text-[1.3125rem] leading-[1.35] font-medium text-ink" data-reveal="rise">
         {unit.summary}
       </p>
-      <p className="max-w-[58ch] text-ink-2 italic" data-reveal="rise" style={{ "--d": "80ms" } as React.CSSProperties}>
-        {unit.note}
-      </p>
+      <figure className="m-0 max-w-[58ch]" data-reveal="rise" style={{ "--d": "80ms" } as React.CSSProperties}>
+        <blockquote className="m-0 text-ink-2">{unit.note}</blockquote>
+        <figcaption className="mt-3 flex items-center gap-2.5 text-[0.8125rem] text-ink-3">
+          <span className="grid size-6 place-items-center rounded-full border border-line-strong text-[0.6875rem] font-bold tracking-wide text-ink-2" aria-hidden>
+            JN
+          </span>
+          Handover note, {unit.owner === "fathopes" ? unit.period : "own product"}
+        </figcaption>
+      </figure>
     </div>
   );
 

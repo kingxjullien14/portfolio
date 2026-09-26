@@ -28,6 +28,15 @@ export function Flow() {
   });
 
   const allLit = reduce;
+
+  // the oil sheen only runs while the panel is on screen
+  useEffect(() => {
+    const el = track.current;
+    if (!el) return;
+    const io = new IntersectionObserver(([e]) => el.classList.toggle("is-live", e.isIntersecting));
+    io.observe(el);
+    return () => io.disconnect();
+  }, []);
   const active = allLit ? LAST : reached;
 
   return (
@@ -53,7 +62,7 @@ export function Flow() {
                       <span className="mimic-node">
                         <Lamp lit={i <= active} size="calc(var(--cell) * 0.62)" />
                       </span>
-                      <span className={`tag transition-opacity duration-300 ${i <= active ? "" : "opacity-60"}`}>{s.label}</span>
+                      <span className={`tag transition-colors duration-300 ${i <= active ? "" : "tag-light"}`}>{s.label}</span>
                     </li>
                   ))}
                 </ol>
@@ -63,7 +72,7 @@ export function Flow() {
                     <span key={s.id} className="mimic-drop" style={{ left: `${10 + i * 20}%` }} data-on={i <= active ? "" : undefined} />
                   ))}
                   <span className="mimic-bus-line" />
-                  <span className="engraved absolute -bottom-7 left-[10%] text-ink-3">API platform · Nitro, GraphQL, Prisma</span>
+                  <span className="absolute -bottom-7 left-[10%] flex items-baseline gap-2 text-ink-3"><span className="engraved">API platform</span><span className="text-[0.8125rem]">Nitro, GraphQL and Prisma</span></span>
                 </div>
               </div>
             </div>

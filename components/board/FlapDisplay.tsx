@@ -47,6 +47,7 @@ export function FlapDisplay({
   const cellsRef = useRef<FlapCell[]>([]);
   const seed = useRef(hash(text + row));
   const shown = useRef(text);
+  const introRan = useRef(false);
 
   useEffect(() => {
     const root = rootRef.current;
@@ -58,8 +59,10 @@ export function FlapDisplay({
     const cells = cellsRef.current;
 
     if (intro === "none" || reduce || !armed) {
-      cells.forEach((c, i) => c.set(initial[i] ?? " "));
+      const now = padTo(shown.current, len, align);
+      cells.forEach((c, i) => c.set(now[i] ?? " "));
       els.forEach((el) => el.removeAttribute("data-intro"));
+      introRan.current = true;
       return () => cells.forEach((c) => c.destroy());
     }
 
@@ -69,13 +72,17 @@ export function FlapDisplay({
 
     const timers: number[] = [];
     const run = () => {
+      introRan.current = true;
       const rand = seeded(seed.current);
-      const target = padTo(text, len, align);
       cells.forEach((c, i) => {
         const jitter = rand() * 60;
         const steps = 3 + Math.floor(rand() * 4);
+        // read the message when the cell starts, so a change during the intro wins
         timers.push(
-          window.setTimeout(() => c.flipTo(target[i] ?? " ", stepMs, steps), delay + row * 70 + i * 20 + jitter),
+          window.setTimeout(
+            () => c.flipTo(padTo(shown.current, len, align)[i] ?? " ", stepMs, steps),
+            delay + row * 70 + i * 20 + jitter,
+          ),
         );
       });
     };
@@ -111,7 +118,8 @@ export function FlapDisplay({
     if (text === shown.current) return;
     shown.current = text;
     const cells = cellsRef.current;
-    if (!cells.length) return;
+    // before the intro runs, it will pick the new message up itself
+    if (!cells.length || !introRan.current) return;
     const target = padTo(text, len, align);
     if (prefersReducedMotion()) {
       cells.forEach((c, i) => c.set(target[i] ?? " "));

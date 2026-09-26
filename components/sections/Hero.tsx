@@ -4,7 +4,7 @@ import { DepartureBoard } from "@/components/board/DepartureBoard";
 
 export function Hero() {
   return (
-    <section id="top" aria-label="Board" className="pt-[calc(56px+var(--cell)*0.85)]">
+    <section id="top" aria-label="Board" className="pt-[calc(56px+var(--cell)*0.85)] pb-[calc(var(--cell)*2.2)]">
       <div className="frame">
         <DepartureBoard />
         <div className="mt-[calc(var(--cell)*1)] grid gap-[calc(var(--cell)*0.9)] md:grid-cols-[1fr_auto] md:items-end">

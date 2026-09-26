@@ -17,7 +17,6 @@ export function Contact() {
         <div className="housing mt-[calc(var(--cell)*2)] p-[calc(var(--cell)*0.35)]" data-reveal="rise">
           <div className="well grid gap-[calc(var(--cell)*1)] p-[calc(var(--cell)*0.9)] md:grid-cols-[1fr_auto] md:items-center md:p-[calc(var(--cell)*1.3)]">
             <div className="grid gap-2">
-              <p className="engraved text-housing-ink opacity-70">Direct line</p>
               <a
                 href={`mailto:${profile.email}`}
                 className="w-max max-w-full break-all text-[clamp(1.35rem,3.4vw,2.6rem)] leading-tight font-semibold tracking-tight text-flap-ink underline decoration-white/20 decoration-1 underline-offset-[0.2em] hover:decoration-white/60"

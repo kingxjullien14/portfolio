@@ -1,0 +1,172 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-26T00:00:00.000Z",
+  "title": "Design System: Jullien Nazreen",
+  "extensions": {
+    "colorMeta": {
+      "lamp-amber": { "role": "primary", "displayName": "Lamp Amber", "canonical": "oklch(0.79 0.155 68)", "scope": "both shifts", "tonalRamp": ["oklch(0.15 0.155 68)", "oklch(0.26 0.155 68)", "oklch(0.37 0.155 68)", "oklch(0.48 0.155 68)", "oklch(0.6 0.155 68)", "oklch(0.72 0.155 68)", "oklch(0.84 0.155 68)", "oklch(0.95 0.155 68)"] },
+      "lamp-amber-deep": { "role": "primary", "displayName": "Deep Amber", "canonical": "oklch(0.63 0.14 60)", "scope": "both shifts", "tonalRamp": ["oklch(0.15 0.14 60)", "oklch(0.26 0.14 60)", "oklch(0.37 0.14 60)", "oklch(0.48 0.14 60)", "oklch(0.6 0.14 60)", "oklch(0.72 0.14 60)", "oklch(0.84 0.14 60)", "oklch(0.95 0.14 60)"] },
+      "enamel-panel": { "role": "neutral", "displayName": "Enamel Panel", "canonical": "oklch(0.885 0.011 135)", "tonalRamp": ["oklch(0.15 0.011 135)", "oklch(0.26 0.011 135)", "oklch(0.37 0.011 135)", "oklch(0.48 0.011 135)", "oklch(0.6 0.011 135)", "oklch(0.72 0.011 135)", "oklch(0.84 0.011 135)", "oklch(0.95 0.011 135)"] },
+      "enamel-raised": { "role": "neutral", "displayName": "Raised Enamel", "canonical": "oklch(0.925 0.009 135)", "tonalRamp": ["oklch(0.15 0.009 135)", "oklch(0.26 0.009 135)", "oklch(0.37 0.009 135)", "oklch(0.48 0.009 135)", "oklch(0.6 0.009 135)", "oklch(0.72 0.009 135)", "oklch(0.84 0.009 135)", "oklch(0.95 0.009 135)"] },
+      "enamel-sunk": { "role": "neutral", "displayName": "Sunk Enamel", "canonical": "oklch(0.848 0.012 135)", "tonalRamp": ["oklch(0.15 0.012 135)", "oklch(0.26 0.012 135)", "oklch(0.37 0.012 135)", "oklch(0.48 0.012 135)", "oklch(0.6 0.012 135)", "oklch(0.72 0.012 135)", "oklch(0.84 0.012 135)", "oklch(0.95 0.012 135)"] },
+      "graphite-ink": { "role": "neutral", "displayName": "Graphite Ink", "canonical": "oklch(0.235 0.008 150)", "tonalRamp": ["oklch(0.15 0.008 150)", "oklch(0.26 0.008 150)", "oklch(0.37 0.008 150)", "oklch(0.48 0.008 150)", "oklch(0.6 0.008 150)", "oklch(0.72 0.008 150)", "oklch(0.84 0.008 150)", "oklch(0.95 0.008 150)"] },
+      "graphite-ink-2": { "role": "neutral", "displayName": "Graphite Ink 2", "canonical": "oklch(0.365 0.01 150)", "tonalRamp": ["oklch(0.15 0.01 150)", "oklch(0.26 0.01 150)", "oklch(0.37 0.01 150)", "oklch(0.48 0.01 150)", "oklch(0.6 0.01 150)", "oklch(0.72 0.01 150)", "oklch(0.84 0.01 150)", "oklch(0.95 0.01 150)"] },
+      "graphite-ink-3": { "role": "neutral", "displayName": "Graphite Ink 3", "canonical": "oklch(0.455 0.011 150)", "tonalRamp": ["oklch(0.15 0.011 150)", "oklch(0.26 0.011 150)", "oklch(0.37 0.011 150)", "oklch(0.48 0.011 150)", "oklch(0.6 0.011 150)", "oklch(0.72 0.011 150)", "oklch(0.84 0.011 150)", "oklch(0.95 0.011 150)"] },
+      "hairline": { "role": "neutral", "displayName": "Hairline", "canonical": "oklch(0.235 0.008 150 / 0.14)", "note": "Night: oklch(1 0 0 / 0.09)", "tonalRamp": ["oklch(0.15 0.008 150 / 0.14)", "oklch(0.26 0.008 150 / 0.14)", "oklch(0.37 0.008 150 / 0.14)", "oklch(0.48 0.008 150 / 0.14)", "oklch(0.6 0.008 150 / 0.14)", "oklch(0.72 0.008 150 / 0.14)", "oklch(0.84 0.008 150 / 0.14)", "oklch(0.95 0.008 150 / 0.14)"] },
+      "hairline-strong": { "role": "neutral", "displayName": "Hairline Strong", "canonical": "oklch(0.235 0.008 150 / 0.3)", "note": "Night: oklch(1 0 0 / 0.2)", "tonalRamp": ["oklch(0.15 0.008 150 / 0.3)", "oklch(0.26 0.008 150 / 0.3)", "oklch(0.37 0.008 150 / 0.3)", "oklch(0.48 0.008 150 / 0.3)", "oklch(0.6 0.008 150 / 0.3)", "oklch(0.72 0.008 150 / 0.3)", "oklch(0.84 0.008 150 / 0.3)", "oklch(0.95 0.008 150 / 0.3)"] },
+      "housing-graphite": { "role": "neutral", "displayName": "Housing Graphite", "canonical": "oklch(0.255 0.006 150)", "tonalRamp": ["oklch(0.15 0.006 150)", "oklch(0.26 0.006 150)", "oklch(0.37 0.006 150)", "oklch(0.48 0.006 150)", "oklch(0.6 0.006 150)", "oklch(0.72 0.006 150)", "oklch(0.84 0.006 150)", "oklch(0.95 0.006 150)"] },
+      "housing-graphite-2": { "role": "neutral", "displayName": "Housing Graphite 2", "canonical": "oklch(0.31 0.007 150)", "tonalRamp": ["oklch(0.15 0.007 150)", "oklch(0.26 0.007 150)", "oklch(0.37 0.007 150)", "oklch(0.48 0.007 150)", "oklch(0.6 0.007 150)", "oklch(0.72 0.007 150)", "oklch(0.84 0.007 150)", "oklch(0.95 0.007 150)"] },
+      "housing-ink": { "role": "neutral", "displayName": "Housing Ink", "canonical": "oklch(0.8 0.008 130)", "tonalRamp": ["oklch(0.15 0.008 130)", "oklch(0.26 0.008 130)", "oklch(0.37 0.008 130)", "oklch(0.48 0.008 130)", "oklch(0.6 0.008 130)", "oklch(0.72 0.008 130)", "oklch(0.84 0.008 130)", "oklch(0.95 0.008 130)"] },
+      "board-well": { "role": "neutral", "displayName": "Board Well", "canonical": "oklch(0.14 0.004 150)", "tonalRamp": ["oklch(0.15 0.004 150)", "oklch(0.26 0.004 150)", "oklch(0.37 0.004 150)", "oklch(0.48 0.004 150)", "oklch(0.6 0.004 150)", "oklch(0.72 0.004 150)", "oklch(0.84 0.004 150)", "oklch(0.95 0.004 150)"] },
+      "flap-black": { "role": "neutral", "displayName": "Flap Black", "canonical": "oklch(0.2 0.003 150)", "note": "Leaf highlight oklch(0.215 0.003 150), leaf shade oklch(0.185 0.003 150)", "tonalRamp": ["oklch(0.15 0.003 150)", "oklch(0.26 0.003 150)", "oklch(0.37 0.003 150)", "oklch(0.48 0.003 150)", "oklch(0.6 0.003 150)", "oklch(0.72 0.003 150)", "oklch(0.84 0.003 150)", "oklch(0.95 0.003 150)"] },
+      "flap-ink": { "role": "neutral", "displayName": "Flap Ink", "canonical": "oklch(0.935 0.01 100)", "tonalRamp": ["oklch(0.15 0.01 100)", "oklch(0.26 0.01 100)", "oklch(0.37 0.01 100)", "oklch(0.48 0.01 100)", "oklch(0.6 0.01 100)", "oklch(0.72 0.01 100)", "oklch(0.84 0.01 100)", "oklch(0.95 0.01 100)"] },
+      "plate": { "role": "neutral", "displayName": "Lamacoid Plate", "canonical": "oklch(0.2 0.005 150)", "tonalRamp": ["oklch(0.15 0.005 150)", "oklch(0.26 0.005 150)", "oklch(0.37 0.005 150)", "oklch(0.48 0.005 150)", "oklch(0.6 0.005 150)", "oklch(0.72 0.005 150)", "oklch(0.84 0.005 150)", "oklch(0.95 0.005 150)"] },
+      "plate-ink": { "role": "neutral", "displayName": "Plate Ink", "canonical": "oklch(0.93 0.008 110)", "tonalRamp": ["oklch(0.15 0.008 110)", "oklch(0.26 0.008 110)", "oklch(0.37 0.008 110)", "oklch(0.48 0.008 110)", "oklch(0.6 0.008 110)", "oklch(0.72 0.008 110)", "oklch(0.84 0.008 110)", "oklch(0.95 0.008 110)"] },
+      "night-panel": { "role": "neutral", "displayName": "Night Enamel Panel", "canonical": "oklch(0.205 0.008 150)", "scope": "[data-theme=\"night\"] value of --panel", "tonalRamp": ["oklch(0.15 0.008 150)", "oklch(0.26 0.008 150)", "oklch(0.37 0.008 150)", "oklch(0.48 0.008 150)", "oklch(0.6 0.008 150)", "oklch(0.72 0.008 150)", "oklch(0.84 0.008 150)", "oklch(0.95 0.008 150)"] },
+      "night-raised": { "role": "neutral", "displayName": "Night Raised Enamel", "canonical": "oklch(0.24 0.009 150)", "scope": "[data-theme=\"night\"] value of --raised", "tonalRamp": ["oklch(0.15 0.009 150)", "oklch(0.26 0.009 150)", "oklch(0.37 0.009 150)", "oklch(0.48 0.009 150)", "oklch(0.6 0.009 150)", "oklch(0.72 0.009 150)", "oklch(0.84 0.009 150)", "oklch(0.95 0.009 150)"] },
+      "night-sunk": { "role": "neutral", "displayName": "Night Sunk Enamel", "canonical": "oklch(0.175 0.008 150)", "scope": "[data-theme=\"night\"] value of --sunk", "tonalRamp": ["oklch(0.15 0.008 150)", "oklch(0.26 0.008 150)", "oklch(0.37 0.008 150)", "oklch(0.48 0.008 150)", "oklch(0.6 0.008 150)", "oklch(0.72 0.008 150)", "oklch(0.84 0.008 150)", "oklch(0.95 0.008 150)"] },
+      "night-ink": { "role": "neutral", "displayName": "Night Ink", "canonical": "oklch(0.93 0.008 125)", "scope": "[data-theme=\"night\"] value of --ink", "tonalRamp": ["oklch(0.15 0.008 125)", "oklch(0.26 0.008 125)", "oklch(0.37 0.008 125)", "oklch(0.48 0.008 125)", "oklch(0.6 0.008 125)", "oklch(0.72 0.008 125)", "oklch(0.84 0.008 125)", "oklch(0.95 0.008 125)"] },
+      "night-ink-2": { "role": "neutral", "displayName": "Night Ink 2", "canonical": "oklch(0.8 0.01 130)", "scope": "[data-theme=\"night\"] value of --ink-2", "tonalRamp": ["oklch(0.15 0.01 130)", "oklch(0.26 0.01 130)", "oklch(0.37 0.01 130)", "oklch(0.48 0.01 130)", "oklch(0.6 0.01 130)", "oklch(0.72 0.01 130)", "oklch(0.84 0.01 130)", "oklch(0.95 0.01 130)"] },
+      "night-ink-3": { "role": "neutral", "displayName": "Night Ink 3", "canonical": "oklch(0.68 0.012 130)", "scope": "[data-theme=\"night\"] value of --ink-3", "tonalRamp": ["oklch(0.15 0.012 130)", "oklch(0.26 0.012 130)", "oklch(0.37 0.012 130)", "oklch(0.48 0.012 130)", "oklch(0.6 0.012 130)", "oklch(0.72 0.012 130)", "oklch(0.84 0.012 130)", "oklch(0.95 0.012 130)"] },
+      "night-housing": { "role": "neutral", "displayName": "Night Housing", "canonical": "oklch(0.155 0.005 150)", "scope": "[data-theme=\"night\"] value of --housing", "tonalRamp": ["oklch(0.15 0.005 150)", "oklch(0.26 0.005 150)", "oklch(0.37 0.005 150)", "oklch(0.48 0.005 150)", "oklch(0.6 0.005 150)", "oklch(0.72 0.005 150)", "oklch(0.84 0.005 150)", "oklch(0.95 0.005 150)"] },
+      "night-housing-2": { "role": "neutral", "displayName": "Night Housing 2", "canonical": "oklch(0.2 0.006 150)", "scope": "[data-theme=\"night\"] value of --housing-2", "tonalRamp": ["oklch(0.15 0.006 150)", "oklch(0.26 0.006 150)", "oklch(0.37 0.006 150)", "oklch(0.48 0.006 150)", "oklch(0.6 0.006 150)", "oklch(0.72 0.006 150)", "oklch(0.84 0.006 150)", "oklch(0.95 0.006 150)"] },
+      "night-well": { "role": "neutral", "displayName": "Night Well", "canonical": "oklch(0.1 0.003 150)", "scope": "[data-theme=\"night\"] value of --well", "tonalRamp": ["oklch(0.15 0.003 150)", "oklch(0.26 0.003 150)", "oklch(0.37 0.003 150)", "oklch(0.48 0.003 150)", "oklch(0.6 0.003 150)", "oklch(0.72 0.003 150)", "oklch(0.84 0.003 150)", "oklch(0.95 0.003 150)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Section headings (split-text reveal) and the operator name at 2.1rem. Archivo condensed via font-stretch 74%." },
+      "headline": { "displayName": "Headline", "purpose": "Scroll read-along lead under a section heading, max 30ch." },
+      "title": { "displayName": "Title", "purpose": "Unit summaries and interlude statements; the hero thesis uses the same voice at clamp(1.2rem, 1.9vw, 1.55rem)." },
+      "body": { "displayName": "Body", "purpose": "Paragraphs and handover notes, 58 to 62ch." },
+      "body-small": { "displayName": "Body Small", "purpose": "Built lists, record details, flow captions." },
+      "caption": { "displayName": "Caption", "purpose": "Figure captions, credits and recreation notices in ink 3." },
+      "label": { "displayName": "Engraved Label", "purpose": "Expanded uppercase plate text naming a hardware part; never an eyebrow above a heading." },
+      "flap": { "displayName": "Flap Glyph", "purpose": "Split-flap cells only; condensed 70%, 66% of the cell height, fixed character drum." }
+    },
+    "shadows": [
+      { "name": "panel-bevel", "value": "0 1px 0 var(--bevel-hi) inset, 0 -1px 0 var(--bevel-lo) inset", "purpose": "Enamel panels and badges." },
+      { "name": "lift", "value": "0 1px 1px oklch(0.235 0.008 150 / 0.08), 0 8px 24px -8px oklch(0.235 0.008 150 / 0.22)", "purpose": "Board housings. Night: 0 1px 1px oklch(0 0 0 / 0.3), 0 10px 28px -10px oklch(0 0 0 / 0.7)." },
+      { "name": "device", "value": "0 2px 4px oklch(0.2 0.01 150 / 0.12), 0 24px 60px -18px oklch(0.2 0.01 150 / 0.45)", "purpose": "Phone, browser and app window frames only. Night: 0 2px 4px oklch(0 0 0 / 0.35), 0 28px 70px -20px oklch(0 0 0 / 0.85)." },
+      { "name": "sunk-well", "value": "inset 0 2px 5px oklch(0.2 0.01 150 / 0.16), inset 0 -1px 0 var(--bevel-hi)", "purpose": "Recessed screen bays. Night inner shadow: oklch(0 0 0 / 0.55) at 6px." },
+      { "name": "board-well", "value": "inset 0 2px 8px oklch(0 0 0 / 0.7), 0 1px 0 oklch(1 0 0 / 0.06)", "purpose": "The black recess behind flaps." },
+      { "name": "housing", "value": "inset 0 1px 0 oklch(1 0 0 / 0.08), inset 0 -1px 0 oklch(0 0 0 / 0.5), var(--shadow-lift)", "purpose": "Graphite board housing rim plus lift." },
+      { "name": "keycap-lip", "value": "inset 0 1px 0 var(--bevel-hi), inset 0 0 0 1px var(--line-strong), 0 2px 0 var(--line-strong), 0 3px 6px -2px oklch(0.2 0.01 150 / 0.2)", "purpose": "Keycap at rest; the 2px lip goes to 0 on :active as the key travels 2px." },
+      { "name": "callbtn-lip", "value": "inset 0 1px 0 oklch(1 0 0 / 0.55), inset 0 0 0 1px oklch(0.5 0.12 55 / 0.55), 0 3px 0 oklch(0.46 0.1 52), 0 6px 14px -6px oklch(0.4 0.1 50 / 0.6)", "purpose": "Amber call button at rest; the 3px lip goes to 0 on :active." }
+    ],
+    "motion": [
+      { "name": "ease-out-strong", "value": "cubic-bezier(0.23, 1, 0.32, 1)", "purpose": "Reveals, key travel, lamp warm-up, shift cross-fade (400ms)." },
+      { "name": "ease-in-out-strong", "value": "cubic-bezier(0.77, 0, 0.175, 1)", "purpose": "Shutter clip-path reveal of screen wells (1100ms)." },
+      { "name": "ease-drawer", "value": "cubic-bezier(0.32, 0.72, 0, 1)", "purpose": "Console menu drop (220ms) and toggle knob (240ms)." },
+      { "name": "flap-fall", "value": "cubic-bezier(0.5, 0, 0.9, 0.5)", "purpose": "Top leaf falling in the split-flap engine." },
+      { "name": "flap-land", "value": "cubic-bezier(0.1, 0.6, 0.35, 1)", "purpose": "Bottom leaf landing in the split-flap engine." },
+      { "name": "key-press", "value": "140ms", "purpose": "Keycap and call button press travel; nav keys 120ms." },
+      { "name": "reveal-rise", "value": "opacity 700ms, transform 900ms from translateY(22px)", "purpose": "Default content reveal; per-item delay via --d." },
+      { "name": "split-word", "value": "900ms from translateY(108%), 42ms stagger per word", "purpose": "Section heading split-text reveal." },
+      { "name": "lamp-warm", "value": "420ms, from 1250ms after mount, 110ms per row", "purpose": "Board row lamps warming after the flap cascade." },
+      { "name": "reduced-motion", "value": "animation-duration 0.001ms; reveals arm only under html.motion-ok", "purpose": "Everything settles to a readable state; content is visible by default." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ],
+    "module": {
+      "cell": "clamp(20px, 2.15vw, 31px)",
+      "pageMax": "1320px",
+      "frame": "min(100% - 2 * var(--cell), 1320px)",
+      "mockUnit": "--mu = 100cqw / --mock-w; inside .mock, Tailwind spacing, text, radius and container tokens are re-pointed to --mu so recreations scale with no JavaScript"
+    }
+  },
+  "components": [
+    {
+      "name": "Call Button",
+      "kind": "button",
+      "refersTo": "button-call",
+      "description": "The single amber primary call per context, with a key lip that collapses on press.",
+      "html": "<a class=\"ds-callbtn\" href=\"#\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 256 256\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"20\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M32 56h192v136a8 8 0 0 1-8 8H40a8 8 0 0 1-8-8Z\"/><path d=\"M224 56 128 144 32 56\"/></svg>Email me</a>",
+      "css": ".ds-callbtn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.45em .92em;border-radius:7px;color:oklch(0.2 0.02 60);background:radial-gradient(120% 90% at 50% 0%,oklch(0.93 0.1 85),transparent 60%),linear-gradient(180deg,var(--amber,oklch(0.79 0.155 68)),oklch(0.72 0.15 62));font-family:var(--font-sans,Archivo,sans-serif);font-stretch:112%;font-weight:700;font-size:.875rem;letter-spacing:.02em;line-height:1;text-decoration:none;box-shadow:inset 0 1px 0 oklch(1 0 0/.55),inset 0 0 0 1px oklch(0.5 0.12 55/.55),0 3px 0 oklch(0.46 0.1 52),0 6px 14px -6px oklch(0.4 0.1 50/.6);transition:transform 140ms cubic-bezier(0.23,1,0.32,1),box-shadow 140ms cubic-bezier(0.23,1,0.32,1),filter 200ms ease;cursor:pointer}.ds-callbtn:hover{filter:brightness(1.04) saturate(1.05)}.ds-callbtn:focus-visible{outline:2px solid var(--ink,oklch(0.235 0.008 150));outline-offset:3px}.ds-callbtn:active{transform:translateY(3px) scale(.985);box-shadow:inset 0 1px 0 oklch(1 0 0/.45),inset 0 0 0 1px oklch(0.5 0.12 55/.55),0 0 0 oklch(0.46 0.1 52),0 2px 6px -3px oklch(0.4 0.1 50/.6)}"
+    },
+    {
+      "name": "Keycap",
+      "kind": "button",
+      "refersTo": "button-keycap",
+      "description": "Secondary action and outbound link key on enamel.",
+      "html": "<a class=\"ds-keycap\" href=\"#\">View the work<svg width=\"14\" height=\"14\" viewBox=\"0 0 256 256\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"24\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M128 40v176M56 144l72 72 72-72\"/></svg></a>",
+      "css": ".ds-keycap{display:inline-flex;align-items:center;gap:.55em;padding:.78em 1.15em .74em;border-radius:6px;background:linear-gradient(180deg,var(--raised,oklch(0.925 0.009 135)),var(--panel,oklch(0.885 0.011 135)));color:var(--ink,oklch(0.235 0.008 150));font-family:var(--font-sans,Archivo,sans-serif);font-stretch:112%;font-weight:620;font-size:.8125rem;letter-spacing:.02em;line-height:1;text-decoration:none;box-shadow:inset 0 1px 0 var(--bevel-hi,oklch(1 0 0/.55)),inset 0 0 0 1px var(--line-strong,oklch(0.235 0.008 150/.3)),0 2px 0 var(--line-strong,oklch(0.235 0.008 150/.3)),0 3px 6px -2px oklch(0.2 0.01 150/.2);transition:transform 140ms cubic-bezier(0.23,1,0.32,1),box-shadow 140ms cubic-bezier(0.23,1,0.32,1),background-color 200ms ease;cursor:pointer}.ds-keycap:hover{background-color:var(--raised,oklch(0.925 0.009 135))}.ds-keycap:focus-visible{outline:2px solid var(--ink,oklch(0.235 0.008 150));outline-offset:3px}.ds-keycap:active{transform:translateY(2px) scale(.985);box-shadow:inset 0 1px 0 var(--bevel-hi,oklch(1 0 0/.55)),inset 0 0 0 1px var(--line-strong,oklch(0.235 0.008 150/.3)),0 0 0 transparent,0 1px 2px -1px oklch(0.2 0.01 150/.2)}"
+    },
+    {
+      "name": "Console Nav Key",
+      "kind": "nav",
+      "refersTo": "nav-key",
+      "description": "Graphite section keys in the console strip; the lamp lights for the section in view.",
+      "html": "<nav class=\"ds-strip\"><a class=\"ds-navkey\" aria-current=\"location\" href=\"#\"><span class=\"ds-lamp ds-lit\"></span>Work</a><a class=\"ds-navkey\" href=\"#\"><span class=\"ds-lamp\"></span>Flow</a><a class=\"ds-navkey\" href=\"#\"><span class=\"ds-lamp\"></span>Contact</a></nav>",
+      "css": ".ds-strip{display:flex;gap:6px;padding:12px;background:linear-gradient(180deg,oklch(1 0 0/.05),transparent 60%),oklch(0.255 0.006 150)}.ds-navkey{display:inline-flex;align-items:center;gap:.55rem;padding:.5rem .8rem .46rem;border-radius:5px;background:linear-gradient(180deg,oklch(0.31 0.007 150),oklch(0.255 0.006 150));color:oklch(0.8 0.008 130);font-family:var(--font-sans,Archivo,sans-serif);font-stretch:112%;font-weight:600;font-size:.75rem;letter-spacing:.03em;line-height:1;text-decoration:none;box-shadow:inset 0 1px 0 oklch(1 0 0/.09),inset 0 0 0 1px oklch(0 0 0/.45),0 1.5px 0 oklch(0 0 0/.55);transition:transform 120ms cubic-bezier(0.23,1,0.32,1),box-shadow 120ms cubic-bezier(0.23,1,0.32,1),color 160ms ease}.ds-navkey:hover,.ds-navkey[aria-current=location]{color:oklch(0.935 0.01 100)}.ds-navkey:focus-visible{outline:2px solid oklch(0.935 0.01 100);outline-offset:3px}.ds-navkey:active{transform:translateY(1.5px);box-shadow:inset 0 1px 0 oklch(1 0 0/.09),inset 0 0 0 1px oklch(0 0 0/.45),0 0 0 transparent}.ds-lamp{width:.4rem;height:.4rem;border-radius:999px;background:radial-gradient(circle at 35% 30%,oklch(0.42 0.01 150),oklch(0.16 0.005 150) 70%);box-shadow:inset 0 0 0 1px oklch(0 0 0/.55)}.ds-lamp.ds-lit{background:radial-gradient(circle at 35% 30%,oklch(0.95 0.08 85),oklch(0.79 0.155 68) 45%,oklch(0.63 0.14 60) 100%)}"
+    },
+    {
+      "name": "Engraved Plate Tag",
+      "kind": "chip",
+      "refersTo": "tag-plate",
+      "description": "Dark lamacoid plate in expanded caps; the outline variant carries tech stacks and inactive stages.",
+      "html": "<span class=\"ds-tag\">Mobile</span> <span class=\"ds-tag ds-tag-light\">Next.js</span>",
+      "css": ".ds-tag{display:inline-flex;align-items:center;gap:.45em;padding:.42em .7em .38em;border-radius:3px;background:oklch(0.2 0.005 150);color:oklch(0.93 0.008 110);font-family:var(--font-sans,Archivo,sans-serif);font-stretch:122%;font-weight:620;text-transform:uppercase;letter-spacing:.08em;font-size:.6875rem;line-height:1;white-space:nowrap;box-shadow:inset 0 1px 0 oklch(1 0 0/.08),0 1px 0 oklch(1 0 0/.55);transition:color 160ms ease}.ds-tag-light{background:transparent;color:var(--ink-2,oklch(0.365 0.01 150));box-shadow:inset 0 0 0 1px var(--line-strong,oklch(0.235 0.008 150/.3))}.ds-tag-light:hover{color:var(--ink,oklch(0.235 0.008 150))}"
+    },
+    {
+      "name": "Enamel Badge Panel",
+      "kind": "card",
+      "refersTo": "enamel-panel",
+      "description": "Raised enamel panel with a pressed-steel bevel; the operator badge is the reference instance.",
+      "html": "<div class=\"ds-enamel\"><div class=\"ds-enamel-head\"><span class=\"ds-engraved\">Operator on duty</span><span class=\"ds-lamp-lit\"></span></div><p class=\"ds-enamel-name\">Jullien Nazreen</p><dl class=\"ds-enamel-dl\"><dt class=\"ds-engraved\">Role</dt><dd>Full-Stack Developer</dd></dl></div>",
+      "css": ".ds-enamel{max-width:320px;padding:18px;border-radius:9px;background:var(--raised,oklch(0.925 0.009 135));color:var(--ink,oklch(0.235 0.008 150));box-shadow:0 1px 0 var(--bevel-hi,oklch(1 0 0/.55)) inset,0 -1px 0 var(--bevel-lo,oklch(0.235 0.008 150/.16)) inset;font-family:var(--font-sans,Archivo,sans-serif)}.ds-enamel-head{display:flex;justify-content:space-between;align-items:center}.ds-engraved{font-stretch:122%;font-weight:620;text-transform:uppercase;letter-spacing:.085em;font-size:.6875rem;line-height:1.2;color:var(--ink-3,oklch(0.455 0.011 150))}.ds-lamp-lit{width:.6rem;height:.6rem;border-radius:999px;background:radial-gradient(circle at 35% 30%,oklch(0.95 0.08 85),oklch(0.79 0.155 68) 45%,oklch(0.63 0.14 60) 100%);box-shadow:inset 0 0 0 1px oklch(0.45 0.1 55/.6)}.ds-enamel-name{margin:14px 0 10px;font-stretch:74%;font-weight:720;font-size:2.1rem;line-height:.92;letter-spacing:-.012em}.ds-enamel-dl{margin:0;font-size:.875rem}.ds-enamel-dl dd{margin:4px 0 0}"
+    },
+    {
+      "name": "Board Housing with Flaps",
+      "kind": "custom",
+      "refersTo": "board-housing",
+      "description": "Graphite housing, black well and split-flap cells: the signature board, bay header and nav display.",
+      "html": "<div class=\"ds-housing\"><div class=\"ds-well\"><span class=\"ds-flap\">L</span><span class=\"ds-flap\">I</span><span class=\"ds-flap\">V</span><span class=\"ds-flap ds-amber\">E</span></div></div>",
+      "css": ".ds-housing{display:inline-flex;padding:10px;border-radius:12px;background:linear-gradient(180deg,oklch(1 0 0/.045),transparent 30%),oklch(0.255 0.006 150);box-shadow:inset 0 1px 0 oklch(1 0 0/.08),inset 0 -1px 0 oklch(0 0 0/.5),0 1px 1px oklch(0.235 0.008 150/.08),0 8px 24px -8px oklch(0.235 0.008 150/.22)}.ds-well{display:inline-flex;gap:3px;padding:8px 10px;border-radius:6px;background:oklch(0.14 0.004 150);box-shadow:inset 0 2px 8px oklch(0 0 0/.7),0 1px 0 oklch(1 0 0/.06)}.ds-flap{position:relative;display:inline-block;width:24px;height:37px;line-height:37px;text-align:center;border-radius:2.6px;background:linear-gradient(180deg,oklch(0.215 0.003 150) 0 50%,oklch(0.185 0.003 150) 50%);color:oklch(0.935 0.01 100);font-family:var(--font-sans,Archivo,sans-serif);font-stretch:70%;font-weight:640;font-size:24px;box-shadow:inset 0 1px 0 oklch(1 0 0/.05),0 1px 1px oklch(0 0 0/.6)}.ds-flap::after{content:'';position:absolute;left:0;right:0;top:calc(50% - .5px);height:1px;background:oklch(0 0 0/.75)}.ds-amber{color:oklch(0.79 0.155 68)}"
+    },
+    {
+      "name": "Night Shift Toggle",
+      "kind": "input",
+      "refersTo": "",
+      "description": "Recessed track with a machined knob that switches day and night shift.",
+      "html": "<button class=\"ds-toggle\" role=\"switch\" aria-checked=\"false\" aria-label=\"Night shift\"><span class=\"ds-knob\"></span></button>",
+      "css": ".ds-toggle{position:relative;width:2.35rem;height:1.3rem;padding:0;border:0;border-radius:999px;background:oklch(0.14 0.004 150);box-shadow:inset 0 1px 3px oklch(0 0 0/.8),0 1px 0 oklch(1 0 0/.08);cursor:pointer}.ds-knob{position:absolute;top:.15rem;left:.15rem;width:1rem;height:1rem;border-radius:999px;background:linear-gradient(180deg,oklch(0.86 0.005 130),oklch(0.66 0.005 130));box-shadow:inset 0 1px 0 oklch(1 0 0/.7),0 1px 2px oklch(0 0 0/.6);transition:transform 240ms cubic-bezier(0.32,0.72,0,1)}.ds-toggle[aria-checked=true] .ds-knob{transform:translateX(1.05rem)}.ds-toggle:focus-visible{outline:2px solid oklch(0.935 0.01 100);outline-offset:3px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Dispatch Room",
+    "overview": "The portfolio is the control room of the network Jullien builds. Every shipped system is a unit in service on a black split-flap board, each row a way into its console bay, where the unit's interface is mounted as a live recreation in a recessed well. Surfaces are stoved-enamel grey-green panels with pressed-steel bevels, graphite housings and trim, and engraved lamacoid plates. The only warm colour in the room is the amber of a lit lamp.\n\nDensity is that of an instrument panel: calm large fields of enamel, then tight, exact hardware where information lives (the board, the nav keys, the plates). Everything is measured in one module, the split-flap cell pitch, so gutters, radii and padding scale together with the viewport. Motion is mechanical: flaps fall and land, lamps warm up, bays open with a shutter, and keys depress on press. Two shifts share the same room: day shift on light enamel, night shift on deep graphite-green, while the board, housings and flaps stay black in both.\n\nThe recreated app screens mounted in the bays carry their own products' palettes and fonts by design; they are exhibits, not part of this system. Only the MockScreen scaling contract and the device frames around them belong to the house.",
+    "keyCharacteristics": [
+      "One module (the flap cell, 20px to 31px) rules gutters, section padding, radii and flap sizes.",
+      "Amber appears only where something is lit: lamps, the call button, live status flaps, sockets and the mimic pipe.",
+      "Depth is physical: bevels, insets and key travel, never glass or blur.",
+      "Archivo is the only house face; its width axis does the typographic work (condensed display and flaps, expanded engraving).",
+      "Day and night shifts swap the enamel and ink; the hardware stays black."
+    ],
+    "rules": [
+      { "name": "The Lit State Rule", "body": "Amber means \"on\". It is used only for an element that is lit, live, patched or the primary call; never as a decorative accent, a heading colour, a link colour or a background wash.", "section": "colors" },
+      { "name": "The Black Hardware Rule", "body": "The board, housings, wells, flaps and plates are the same dark hardware in both shifts. Only enamel and ink change with the shift.", "section": "colors" },
+      { "name": "The One Face Rule", "body": "Archivo is the only house typeface; hierarchy comes from its width axis and weight, not from a second family. Inter, Fraunces, JetBrains Mono and Space Grotesk are loaded without preload solely to dress the recreated screens and must not appear in house UI.", "section": "typography" },
+      { "name": "The Engraving Is A Plate Rule", "body": "Expanded uppercase labels name a part of the hardware (a badge field, a board column, a switch). They are never placed as an eyebrow above a heading; headings carry themselves.", "section": "typography" },
+      { "name": "The Clean Copy Rule", "body": "Visible copy contains no em or en dashes. Use commas, full stops, colons or \"to\" for ranges.", "section": "typography" },
+      { "name": "The Physical Depth Rule", "body": "Every shadow must correspond to a physical cause: a bevel, a recess, a key's travel, or an object resting on the panel. No glass, no backdrop blur, no coloured glows.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do size every gutter, padding and panel radius as a multiple of `--cell`.",
+      "Do keep amber for lit, live or patched state and the single primary call.",
+      "Do mount work as a live recreation in a sunk well, in a device frame, with a recreation caption where the data is synthetic.",
+      "Do use flap displays for board-like headers and status, with a screen-reader text twin.",
+      "Do give every key a lip that collapses on press, and every panel a bevel.",
+      "Do collapse all motion to a settled, readable state under reduced motion; content is visible without JavaScript."
+    ],
+    "donts": [
+      "Don't use amber as decoration, a heading colour, a gradient wash or a glow.",
+      "Don't put an eyebrow or kicker label above a heading.",
+      "Don't introduce glass, backdrop blur, gradient-mesh heroes or floating project cards.",
+      "Don't set house UI in Inter, Fraunces, JetBrains Mono or Space Grotesk; they belong to the recreated screens.",
+      "Don't use em or en dashes in visible copy.",
+      "Don't let text go lighter than ink 3 on enamel or housing ink on graphite."
+    ]
+  }
+}

@@ -65,7 +65,7 @@ export function ConsoleStrip() {
 
           <div className="ml-auto flex items-center gap-2 lg:ml-3">
             <div className="hidden items-center gap-2 text-housing-ink lg:flex" aria-hidden>
-              <span className="engraved opacity-70">Now</span>
+              <span className="engraved">Now</span>
               <FlapDisplay text={now} length={7} size="xs" decorative />
             </div>
             <button
@@ -76,7 +76,7 @@ export function ConsoleStrip() {
               aria-controls="console-menu"
               aria-label={`Sections menu, now showing ${now.toLowerCase()}`}
             >
-              <span className="engraved hidden opacity-70 sm:inline">Now</span>
+              <span className="engraved hidden sm:inline">Now</span>
               <FlapDisplay text={now} length={7} size="xs" decorative />
               <CaretDown weight="bold" className={`size-3.5 transition-transform duration-200 ${open ? "rotate-180" : ""}`} aria-hidden />
             </button>

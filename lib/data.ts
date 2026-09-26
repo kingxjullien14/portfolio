@@ -102,7 +102,7 @@ export const units: Unit[] = [
     period: "2025 to now",
     summary:
       "Where feedstock is bought and sold: company KYC, negotiated purchase requests, and contracts signed under a tamper-evident seal.",
-    note: "A contract here passes between a supplier, a director and a CEO, often over several rounds. I put every counter-offer into one readable thread and made every signature an HMAC seal that anyone can verify later. Sign the demo contract below, then change a number and verify it again.",
+    note: "A contract here passes between a supplier, a director and a CEO, often over several rounds. I put every counter-offer into one readable thread and made every signature an HMAC seal that anyone can verify later. Sign the demo contract on the screen, then change a number and verify it again.",
     built: [
       "A 15-step KYC and compliance review",
       "Purchase requests with counter-offers in one thread",
@@ -213,7 +213,7 @@ export const units: Unit[] = [
     owner: "own",
     period: "Live at stonenchisel.com",
     summary: "A calm place to carve markdown notes.",
-    note: "My own notes app, built the way I like to write: split view with scroll sync, wiki links and backlinks, math, Mermaid and Excalidraw canvases, all autosaved with version history. The notes pane in OSAI is a Stone & Chisel client, so the two work as one setup. Type in the editor below.",
+    note: "My own notes app, built the way I like to write: split view with scroll sync, wiki links and backlinks, math, Mermaid and Excalidraw canvases, all autosaved with version history. The notes pane in OSAI is a Stone & Chisel client, so the two work as one setup. Try typing in the editor on the screen.",
     built: [
       "Edit, split and preview with scroll sync",
       "Wiki links, backlinks and a note graph",

@@ -7,11 +7,11 @@ import { clearShiftLog, useShiftLog } from "@/lib/shift-log";
 export function ShiftSummary() {
   const log = useShiftLog();
   if (log.length === 0) {
-    return <p className="text-[0.9375rem] text-housing-ink opacity-75">Email works best. LinkedIn and GitHub are just below.</p>;
+    return <p className="text-[0.9375rem] text-housing-ink">Email works best. LinkedIn and GitHub are just below.</p>;
   }
   const all = log.length === units.length;
   return (
-    <p className="text-[0.9375rem] text-housing-ink opacity-80">
+    <p className="text-[0.9375rem] text-housing-ink">
       {all
         ? "You inspected every unit on the board. Tell me which one you would rebuild."
         : `You inspected ${log.length} of ${units.length} units. Ask me about any of them.`}{" "}

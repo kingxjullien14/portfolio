@@ -21,22 +21,30 @@ export function Boot() {
       targets.forEach((el) => el.setAttribute("data-in", ""));
       return;
     }
+    // a shutter starts fully clipped, so it has no visible area of its own;
+    // watch its unclipped parent and open the shutter from there
+    const proxyFor = new Map<Element, HTMLElement>();
     const io = new IntersectionObserver(
       (entries) => {
         for (const e of entries) {
           if (e.isIntersecting) {
-            e.target.setAttribute("data-in", "");
+            (proxyFor.get(e.target) ?? (e.target as HTMLElement)).setAttribute("data-in", "");
             io.unobserve(e.target);
           }
         }
       },
-      { rootMargin: "0px 0px -12% 0px", threshold: 0.08 },
+      { rootMargin: "0px 0px -12% 0px", threshold: 0 },
     );
     // whatever is already on screen at load enters now, staggered by its own delay
     const fold = window.innerHeight;
     targets.forEach((el) => {
-      if (el.getBoundingClientRect().top < fold) el.setAttribute("data-in", "");
-      else io.observe(el);
+      if (el.getBoundingClientRect().top < fold) {
+        el.setAttribute("data-in", "");
+        return;
+      }
+      const watch = el.getAttribute("data-reveal") === "shutter" && el.parentElement ? el.parentElement : el;
+      proxyFor.set(watch, el);
+      io.observe(watch);
     });
     return () => io.disconnect();
   }, []);
